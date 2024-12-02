@@ -1,0 +1,31 @@
+header.hero
+    .hero-text
+        h1
+            background: $color-background
+            display: inline
+            position: relative
+            padding-left: $spacing-2
+            padding-right: $spacing-2
+            &::before,
+            &::after
+                position: absolute
+                content: ''
+                border-radius: 100%
+                height: pxToRem(40)
+                width: pxToRem(40)
+                z-index: -1
+            &::before
+                background: $color-accent-alt
+                left: 0
+                top: 0
+                transform: translate(-50%,-50%)
+            &::after
+                bottom: 0
+                transform: translate(-22%, 45%)
+                background: $color-red-alt
+            + p
+                margin-top: $spacing-4
+    // breadcrumb
+    .breadcrumb-nav
+        text-transform: uppercase
+    

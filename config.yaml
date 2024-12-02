@@ -1,0 +1,28 @@
+theme: osuny
+params:
+  logo:
+    header: "/assets/images/logo.svg"
+    footer: "/assets/images/logo-footer.svg"
+  menu:
+    dropdown:
+      level2_summary: true
+  search:
+    active: true
+    position: menu
+  summary:
+    position: hero
+  search:
+    active: true
+    positions:
+      - primary
+      - footer
+      - fixed
+  logo:
+    header: '/assets/images/logo.svg'
+    footer: '/assets/images/logo.svg'
+  persons:
+    single:
+      backlinks: true
+  organizations:
+    single:
+      backlinks: true

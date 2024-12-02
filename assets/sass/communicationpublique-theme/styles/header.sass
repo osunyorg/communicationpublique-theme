@@ -1,0 +1,67 @@
+header#document-header
+    nav.upper-menu
+        .container
+            ul
+                margin-right: var(--grid-gutter-negative)
+                padding-left: 0
+                padding-right: 0
+                li
+                    padding-left: var(--grid-gutter)
+                    padding-right: var(--grid-gutter)
+        @include media-breakpoint-down(desktop)
+            ul
+                gap: 0
+            html.has-menu-opened &
+                background: $header-upper-menu-background
+                a, span
+                    color: $color-background
+        @include media-breakpoint-up(desktop)
+            ul
+                justify-content: space-between
+                margin-left: var(--grid-gutter-negative)
+                width: var(--grid-width)
+                li
+                    flex: 1
+                    text-align: center
+                    text-transform: uppercase
+                    font-weight: bold
+                    &:first-child
+                        text-align: left
+                    &:last-child
+                        text-align: right
+                    a
+                        em
+                            font-style: normal
+                            opacity: 0.7
+    nav:not(.upper-menu)
+        &.nav-level-1
+            > li
+                a.active
+                    text-decoration: underline
+                    text-underline-offset: 3px
+                    text-decoration-color: $color-accent
+                    text-decoration-thickness: 2px
+        .dropdown-menu
+            @include media-breakpoint-up(desktop)
+                html.has-menu-opened &
+                    border-top: 2px solid $color-accent-alt
+                    padding-top: $spacing-5
+            .nav-level-2
+                > li
+                    &::after
+                        background:
+                            image: url('/assets/images/icon-blue.svg')
+                            position: center
+                            size: contain
+                        content: ''
+                        display: inline
+                        height: pxToRem(26)
+                        margin-left: $spacing-1
+                        position: absolute
+                        width: pxToRem(26)
+                    > *
+                        display: inline
+    // search
+    #search 
+        .pagefind-ui__form::after
+            font-size: pxToRem(20)
