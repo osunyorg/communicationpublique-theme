@@ -1,3 +1,13 @@
+// categories
+.post .post-categories,
+.post-infos .post-categories
+    li
+        a
+            background-color: $color-accent
+            color: $color-background
+            padding: pxToRem(4) $spacing-1
+// TODO: check when there are multiple catagories
+    
 // call to action
 .block-call_to_action
     .call_to_action
@@ -10,3 +20,37 @@
                 @include media-breakpoint-up(desktop)
                     line-height: $lead-sidebar-line-height-desktop
                     font-size: $lead-sidebar-size-desktop
+
+// events
+.events--grid
+    .event
+        .media
+            img
+                aspect-ratio: 7/5
+
+// posts
+.block-posts
+    &--large
+        @include in-page-without-sidebar
+            .large
+                .post
+                    .media
+                        margin-left: calc(-1 * var(--column-width))
+                        width: calc(#{columns(7)} - var(--grid-gutter))
+                        picture 
+                            -webkit-mask-image: url('/assets/images/masks/mask-2.svg')
+                            mask-image: url('/assets/images/masks/mask-2.svg')
+                            mask-repeat: no-repeat
+                            mask-size: 100%
+                            img
+                                aspect-ratio: 4/3
+// chapter
+.block-chapter
+    @include in-page-without-sidebar
+        .chapter
+            .text
+                width: columns(6)
+        &--with-image
+            .chapter figure
+                margin-right: calc(-1 * var(--column-width))
+                width: columns(5)

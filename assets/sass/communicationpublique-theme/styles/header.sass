@@ -34,13 +34,21 @@ header#document-header
                             font-style: normal
                             opacity: 0.7
     nav:not(.upper-menu)
-        &.nav-level-1
-            > li
-                a.active
-                    text-decoration: underline
-                    text-underline-offset: 3px
-                    text-decoration-color: $color-accent
-                    text-decoration-thickness: 2px
+        @include media-breakpoint-up(desktop)
+            .nav-level-1
+                > li
+                    a
+                        text-decoration: underline
+                        text-underline-offset: 4px
+                        text-decoration-color: transparent
+                        text-decoration-thickness: 2px
+                        &.active
+                            text-decoration-color: $color-accent
+                        &:not(.active):hover
+                            text-decoration-color: $color-accent-alt
+            .nav-level-2
+                > li a 
+                    text-underline-offset: 5px
         .dropdown-menu
             @include media-breakpoint-up(desktop)
                 html.has-menu-opened &
