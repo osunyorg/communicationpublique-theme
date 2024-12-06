@@ -20,9 +20,12 @@ params:
   logo:
     header: '/assets/images/logo.svg'
     footer: '/assets/images/logo.svg'
-  persons:
-    single:
-      backlinks: true
   organizations:
     single:
       backlinks: true
+  persons:
+    single:
+      backlinks: true
+  projects:
+    index:
+      truncate_description: 999 
