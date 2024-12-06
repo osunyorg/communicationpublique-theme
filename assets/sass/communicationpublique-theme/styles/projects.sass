@@ -1,0 +1,17 @@
+.projects
+    @include media-breakpoint-up(desktop)
+        &__section
+            .projects
+                display: block
+                .project
+                    display: flex
+                    flex-direction: row
+                    gap: var(--grid-gutter)
+                    .media
+                        max-width: columns(3)
+        &__page
+            .hero
+                .hero-text
+                    width: columns(9)
+                figure
+                    width: columns(3)
