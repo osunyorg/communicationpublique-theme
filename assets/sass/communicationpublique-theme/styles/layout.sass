@@ -4,14 +4,29 @@
         span
             text-transform: uppercase
 
-// POUR LE TOC
-            // @include body-text
-            // font-weight: normal
-
 footer#document-footer
     .footer-legals,
     .footer-credit
         text-transform: uppercase
+    .footer-credit
+        a
+            text-decoration: underline
+            text-decoration-color: $color-accent-alt
+            text-decoration-thickness: 2px
+            &::after
+                color: $color-accent-alt
+    .footer-social
+        .site-links li
+            align-items: baseline
     .footer-button
         a
             @extend .btn
+    .footer-site
+        > address
+            [itemprop="name"]
+                font-weight: bold
+
+.toc-container
+    .toc-title
+        font-weight: bold
+        text-transform: uppercase

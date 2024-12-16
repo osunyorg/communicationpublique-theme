@@ -7,10 +7,12 @@
             color: $color-background
             padding: pxToRem(4) $spacing-1
 // TODO: check when there are multiple catagories
-    
+
 // call to action
 .block-call_to_action
     .call_to_action
+        .block-title
+            margin-bottom: $spacing-4
         .description
             p
                 font-family: $font-normal
@@ -24,6 +26,8 @@
 // events
 .events--grid
     .event
+        .event-dates
+            font-weight: normal
         .media
             img
                 aspect-ratio: 7/5
@@ -44,6 +48,7 @@
                             mask-size: 100%
                             img
                                 aspect-ratio: 4/3
+
 // chapter
 .block-chapter
     @include in-page-without-sidebar
@@ -54,3 +59,51 @@
             .chapter figure
                 margin-right: calc(-1 * var(--column-width))
                 width: columns(5)
+
+// posts
+.block-posts
+    &--large
+        .large
+            @include in-page-without-sidebar
+                .post
+                    .post-content
+                        position: relative
+                        height: fit-content
+                        padding-bottom: $spacing-4
+                    .post-title
+                        @include h1
+                    .post-subtitle
+                        @include h2
+                    .more
+                        display: none
+                    time
+                        bottom: 0
+                        color: $color-text
+                        position: absolute
+                        text-transform: uppercase
+    
+// pages
+.block-pages
+    &--list
+        &.with-description
+            .block-content
+                @include in-page-without-sidebar
+                    .top
+                        .description p
+                            @include lead
+                    .list
+                        li
+                            text-transform: uppercase
+                            font-weight: bold
+                            a::before
+                                content: none
+
+// timeline
+.block-timeline
+    &--vertical
+        .timeline-event
+            &::after
+                bottom: pxToRem(8)
+                top: pxToRem(37)
+                width: pxToRem(2)
+                left: calc(-#{$spacing-3} - 0.5px)

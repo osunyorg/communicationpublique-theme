@@ -3,7 +3,16 @@
     {{ partial "footer/logo.html" }}
   </div>
   <div class="footer-site">
-    {{ partial "footer/site.html" }}
+    {{ if or site.Data.school site.Data.laboratory site.Data.journal }}
+      {{ partial "footer/site.html" }}
+    {{ else }}
+      <address itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+        <p itemprop="name">Communication publique </p>
+        <span itemprop="streetAddress">9 rue du Colonel Driant </span>
+        <span itemprop="postalCode">75001</span>
+        <span itemprop="addressLocality">Paris</span>
+      </address>
+    {{ end }}
   </div>
 </div>
 <div class="footer-functionalities container">
