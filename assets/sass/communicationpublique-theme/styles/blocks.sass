@@ -24,13 +24,48 @@
                     font-size: $lead-sidebar-size-desktop
 
 // events
-.events--grid
-    .event
-        .event-dates
-            font-weight: normal
-        .media
-            img
-                aspect-ratio: 7/5
+.events
+    &--grid
+        .event
+            .event-dates
+                font-weight: normal
+            .media
+                img
+                    aspect-ratio: 7/5
+    &--list
+        .event
+            border-bottom: 0
+            &-content
+                .event-time,
+                .event-dates
+                    font-weight: normal
+                .event-dates
+                    @include body-text
+                .event-time
+                    margin-top: space()
+            .media
+                @include in-page-with-or-without-sidebar
+                    margin-right: var(--grid-gutter-negative)
+                    width: calc(#{columns(2)} + (var(--column-width) * 2))
+                @include media-breakpoint-down(desktop)
+                    max-width: 100%
+                    margin-bottom: 0
+                    margin-top: $spacing-2
+                    order: 2
+                img
+                    aspect-ratio: 1
+                    object-fit: cover
+                    object-position: center
+            @include media-breakpoint-up(desktop)
+                margin-bottom: $spacing-5
+                padding-bottom: 0
+                &-content
+                    .event-title
+                        @include h3
+                        text-transform: uppercase
+                    .event-subtitle
+                        @include h4
+                        text-transform: uppercase
 
 // posts
 .block-posts
@@ -116,11 +151,14 @@
 // persons
 .block-persons
     &.block-with-long-text
-        @include in-page-without-sidebar
+        .person
             .persons
-                article.person
+                @include in-page-without-sidebar
                     .avatar
                         width: columns(1.5)
+    article.person
+        .person-name
+            text-transform: uppercase
 
 // organizations
 .block-organizations
