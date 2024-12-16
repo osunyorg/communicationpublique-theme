@@ -28,4 +28,22 @@ header.hero
     // breadcrumb
     .breadcrumb-nav
         text-transform: uppercase
-    
+
+// persons
+.persons__page
+    .hero--with-image
+        .content 
+            figure
+                display: flex
+                align-items: center
+                justify-content: center
+                position: relative
+                &::after
+                    aspect-ratio: 1
+                    content: ''
+                    border: 8px solid $color-accent-alt
+                    border-radius: 50%
+                    border-top: 8px solid transparent
+                    position: absolute
+                    transform: rotate(45deg)
+                    width: calc(100% + 14px)

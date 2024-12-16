@@ -97,6 +97,11 @@
                             font-weight: bold
                             a::before
                                 content: none
+                            .page-content
+                                width: 100%
+                                > p
+                                    text-transform: none
+                                    font-weight: normal
 
 // timeline
 .block-timeline
@@ -107,3 +112,23 @@
                 top: pxToRem(37)
                 width: pxToRem(2)
                 left: calc(-#{$spacing-3} - 0.5px)
+
+// persons
+.block-persons
+    &.block-with-long-text
+        @include in-page-without-sidebar
+            .persons
+                article.person
+                    .avatar
+                        width: columns(1.5)
+
+// organizations
+.block-organizations
+    .organizations
+        .organization
+            .organization-content 
+                .organization-title
+                    @include h4
+                    text-transform: uppercase
+            .media
+                border-radius: 100%

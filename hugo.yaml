@@ -23,6 +23,11 @@ params:
   organizations:
     single:
       backlinks: true
+    index:
+      options:
+        link: true
+        logo: true
+        summary: true
   persons:
     single:
       backlinks: true
