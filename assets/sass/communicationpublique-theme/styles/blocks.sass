@@ -169,14 +169,19 @@
     &--list
         &.with-description
             .block-content
+                .block-title
+                    @include link-animation
+                    a
+                        margin-right: space(2)
+                        &::after
+                            content: none
+                .list
+                    li
+                        @include link-animation($size: pxToRem(16))
+                        a::before
+                            content: none
                 @include in-page-without-sidebar
                     .top
-                        .block-title
-                            @include link-animation
-                            a
-                                margin-right: space(2)
-                                &::after
-                                    content: none
                         .description p
                             @include lead
                     .list
@@ -184,8 +189,6 @@
                             @include link-animation($size: pxToRem(16))
                             text-transform: uppercase
                             font-weight: bold
-                            a::before
-                                content: none
                             .page-content
                                 width: 100%
                                 > p
