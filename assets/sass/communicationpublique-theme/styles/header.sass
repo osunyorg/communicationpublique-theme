@@ -5,13 +5,22 @@ header#document-header
                 margin-right: var(--grid-gutter-negative)
                 padding-left: 0
                 padding-right: 0
-                li
+                li:not(.nav-search)
                     flex: 1
-                    padding-left: var(--grid-gutter)
-                    padding-right: var(--grid-gutter)
-                    transition: background-color 0.3s ease
-                    &:hover
-                        background-color: #003380
+                    a
+                        padding-left: var(--grid-gutter)
+                        padding-right: var(--grid-gutter)
+                        transition: background-color 0.3s ease
+                        em
+                            font-style: normal
+                            opacity: 0.7
+                        &:not([href*="https://"], [href*="http://"])
+                            background: $color-dark-blue
+                            box-shadow: none !important
+                    &:hover 
+                        [href*="https://"],
+                        [href*="http://"]
+                            background-color: #003380
         @include media-breakpoint-down(desktop)
             ul
                 gap: 0
@@ -34,10 +43,7 @@ header#document-header
                         text-align: left
                     &:last-child
                         text-align: right
-                    a
-                        em
-                            font-style: normal
-                            opacity: 0.7
+                        
     nav:not(.upper-menu)
         @include media-breakpoint-up(desktop)
             .nav-level-1
@@ -59,21 +65,6 @@ header#document-header
                 html.has-menu-opened &
                     border-top: 2px solid $color-accent-alt
                     padding-top: $spacing-5
-            // .nav-level-2
-            //     > li
-            //         &::after
-            //             background:
-            //                 image: url('/assets/images/icon-blue.svg')
-            //                 position: center
-            //                 size: contain
-            //             content: ''
-            //             display: inline
-            //             height: pxToRem(26)
-            //             margin-left: $spacing-1
-            //             position: absolute
-            //             width: pxToRem(26)
-            //         > *
-            //             display: inline
     // search
     #search 
         .pagefind-ui__form::after

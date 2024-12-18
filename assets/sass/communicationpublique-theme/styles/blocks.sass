@@ -1,50 +1,3 @@
-// pacman animation
-@mixin link-animation($color: $color-accent-alt, $size: pxToRem(28))
-    display: block
-    position: relative
-    width: fit-content
-    line-height: 1
-    &::before,
-    &::after
-        align-items: center
-        content: ''
-        display: inline-flex
-        transform: translateY(-50%)
-    &::after
-        background-color: $color-accent-alt
-        border-radius: 100%
-        height: $size
-        width: $size
-    &::before
-        background: $color-background
-        bottom: 0
-        clip-path: polygon(100% 100%, 50% 50%, 100% 10%)
-        height: $size
-        left: unset
-        position: absolute
-        right: 0
-        width: $size
-        z-index: 2
-        animation: bubble-mouth-reversed 0.3s forwards
-    &:hover::before
-        animation: bubble-mouth 0.3s forwards
-    &:hover::before,
-    &:hover::after
-        transform: translateY(-50%) 
-
-@keyframes bubble-mouth
-    from
-        clip-path: polygon(100% 74%, 44% 48%, 100% 21%)
-    to
-        clip-path: polygon(100% 50%, 44% 48%, 100% 50%)
-
-@keyframes bubble-mouth-reversed
-    from
-        clip-path: polygon(100% 50%, 44% 48%, 100% 50%)
-    to
-        clip-path: polygon(100% 100%, 50% 50%, 100% 10%)
-
-    
 // categories
 .post .post-categories,
 .post-infos .post-categories
@@ -117,9 +70,12 @@
 // posts
 .block-posts
     &--large
-        @include in-page-without-sidebar
-            .large
-                .post
+        .large
+            .post
+                .post-title
+                    a
+                        @include link-animation($size: pxToRem(16))
+                @include in-page-without-sidebar
                     .media
                         margin-left: calc(-1 * var(--column-width))
                         width: calc(#{columns(7)} - var(--grid-gutter))
@@ -170,15 +126,14 @@
         &.with-description
             .block-content
                 .block-title
-                    @include link-animation
                     a
-                        margin-right: space(2)
+                        @include link-animation
                         &::after
                             content: none
                 .list
-                    li
+                    li a
                         @include link-animation($size: pxToRem(16))
-                        a::before
+                        &::before
                             content: none
                 @include in-page-without-sidebar
                     .top

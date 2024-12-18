@@ -4,8 +4,12 @@ params:
     header: "/assets/images/logo.svg"
     footer: "/assets/images/logo-footer.svg"
   menu:
-    dropdown:
-      level2_summary: true
+    primary:
+      level_2:
+        summary:
+          active: active
+          source: "meta_description" # "Summary" | "meta_description"
+          truncate: 0
   search:
     active: true
     position: menu
