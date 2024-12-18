@@ -72,9 +72,6 @@
     &--large
         .large
             .post
-                .post-title
-                    a
-                        @include link-animation($size: pxToRem(16))
                 @include in-page-without-sidebar
                     .media
                         margin-left: calc(-1 * var(--column-width))
@@ -125,23 +122,12 @@
     &--list
         &.with-description
             .block-content
-                .block-title
-                    a
-                        @include link-animation
-                        &::after
-                            content: none
-                .list
-                    li a
-                        @include link-animation($size: pxToRem(16))
-                        &::before
-                            content: none
                 @include in-page-without-sidebar
                     .top
                         .description p
                             @include lead
                     .list
                         li
-                            @include link-animation($size: pxToRem(16))
                             text-transform: uppercase
                             font-weight: bold
                             .page-content
@@ -180,5 +166,7 @@
                 .organization-title
                     @include h4
                     text-transform: uppercase
+                    a
+                        display: inline
             .media
                 border-radius: 100%
