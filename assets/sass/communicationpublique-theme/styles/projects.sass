@@ -12,9 +12,10 @@
                     [itemprop="abstract"]
                         margin-top: $spacing-4
                         width: columns(7)
-        &__page
-            .hero
-                .hero-text
-                    width: columns(9)
-                figure
-                    width: columns(3)
+.projects__page
+    .dropdown-share
+        .share
+            a
+                transition: color 0.3s ease
+                &:hover
+                    color: transparentize($color-background, 0.2)

@@ -11,7 +11,6 @@ window.commPu.LinkAnimation = function () {
 
 window.commPu.LinkAnimation.prototype = {
     createSpan: function() {
-        console.log(this.links)
         this.links.forEach(function (link) {
             link.classList.add('has-animation');
             

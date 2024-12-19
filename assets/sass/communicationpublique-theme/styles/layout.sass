@@ -1,3 +1,14 @@
+header,
+footer,
+.block:not(.block-contact)
+    a, .link
+        &[target="_blank"]:not(.icon)
+            &::after
+                @include icon-site(external)
+                display: inline-block
+                font-size: 80% !important
+                margin-left: $spacing-1
+    
 .post-infos
     li
         &,
@@ -15,16 +26,25 @@ footer#document-footer
             text-decoration-thickness: 2px
             &::after
                 color: $color-accent-alt
+            &:hover
+                text-decoration-color: $color-dark-blue
     .footer-social
         .site-links li
             align-items: baseline
     .footer-button
         a
             @extend .btn
+            align-items: baseline !important
     .footer-site
         > address
             [itemprop="name"]
                 font-weight: bold
+            [itemprop="streetAddress"]
+                display: inline
+    a[target="_blank"]:not(.icon)
+        &::after
+            font-size: pxToRem(20)
+            align-self: baseline
 
 .toc-container
     .toc-title

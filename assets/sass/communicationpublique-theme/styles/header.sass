@@ -86,7 +86,8 @@ header#document-header
                     a
                         @include hover-gray
                         font-size: 0
-                        @include icon(at-line, after)
+                        &::after
+                            @include icon-site(email)
                             font-size: var(--meta-size)
                         &:hover
                             text-decoration: none
@@ -98,13 +99,23 @@ header#document-header
                 gap: $spacing-3
 
             .nav-level-2
-                > li a 
+                > li a
                     text-underline-offset: 5px
         .dropdown-menu
             @include media-breakpoint-up(desktop)
                 html.has-menu-opened &
                     border-top: 2px solid $color-accent-alt
                     padding-top: $spacing-5
+            li.with-summary
+                position: relative
+                > a
+                    @include h6
+                    @include stretched-link(before)
+                    @include media-breakpoint-up(desktop)
+                        @include h5
+                    + p
+                        display: block
+                        @include media-breakpoint-up(desktop)
     // search
     .nav-search
         @include media-breakpoint-up(desktop)
