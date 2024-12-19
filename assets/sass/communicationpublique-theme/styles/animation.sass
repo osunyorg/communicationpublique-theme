@@ -9,23 +9,35 @@
         margin-left: $spacing-1
         position: relative
         transform: translateY(-40%)
-        // sizes
+        height: 100%
+        @include media-breakpoint-down(desktop)
+            display: inline-flex !important
+            padding: 0 !important
         .block &
             height: pxToRem(16)
             width: pxToRem(16)
         .block-title &,
-        .block-pages--list.with-description &,
         .dropdown-menu &,
         .event &,
         .organization &,
         .block-pages--grid &,
         .posts--list &,
         .person &
-            height: pxToRem(28)
-            width: pxToRem(28)
+            height: pxToRem(22)
+            width: pxToRem(22)
+            @include media-breakpoint-up(desktop)
+                height: pxToRem(28)
+                width: pxToRem(28)
+        .dropdown-menu &
+            @include media-breakpoint-down(desktop)
+                height: pxToRem(18)
+                width: pxToRem(18)
         .large &
-            height: pxToRem(48)
-            width: pxToRem(48)
+            height: pxToRem(24)
+            width: pxToRem(24)
+            @include media-breakpoint-up(desktop)
+                height: pxToRem(48)
+                width: pxToRem(48)
         &::before,
         &::after
             align-items: center

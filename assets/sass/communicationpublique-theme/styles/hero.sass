@@ -13,8 +13,11 @@ header.hero
                 position: absolute
                 content: ''
                 border-radius: 100%
-                height: pxToRem(40)
-                width: pxToRem(40)
+                height: pxToRem(30)
+                width: pxToRem(30)
+                @include media-breakpoint-up(desktop)
+                    height: pxToRem(40)
+                    width: pxToRem(40)
                 z-index: -1
             &::before
                 background: $color-accent-alt
@@ -23,9 +26,11 @@ header.hero
                 transform: translate(-50%,-50%)
             &::after
                 bottom: 0
-                right: -28px
                 transform: translate(-22%, 45%)
                 background: $color-red-alt
+                right: -21px
+                @include media-breakpoint-up(desktop)
+                    right: -28px
             + p
                 margin-top: $spacing-4
     // breadcrumb

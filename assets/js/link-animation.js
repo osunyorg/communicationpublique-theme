@@ -2,10 +2,6 @@ window.commPu = window.commPu || {};
 window.commPu.LinkAnimation = function () {
     this.links = document.querySelectorAll('.nav-level-2 a, .block .top .block-title a, .block .top + ul a, .block [itemprop="headline"] a, .block .organization-title, .block .page-title a, .events .event-title a, .post-title a, .person-name')
     
-    if (window.innerWidth < 768) {
-        return;
-    }
-    
     this.createSpan();
 };
 
