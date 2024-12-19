@@ -31,12 +31,16 @@
                         @extend .btn
                         @include button-icon(share-fill)
                     &:last-child
-                        padding: var(--btn-padding)
-                        padding-top: 0
-                        padding-bottom: 0
                         &::before
                             @include icon-site(buy)
                             margin-right: space(2)
+        @include media-breakpoint-up(desktop)
+            .projects__page.full-width &
+                .actions a
+                    &:last-child
+                        padding: var(--btn-padding)
+                        padding-top: 0
+                        padding-bottom: 0
 
 // events
 .events
