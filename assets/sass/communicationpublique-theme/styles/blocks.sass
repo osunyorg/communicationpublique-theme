@@ -80,10 +80,12 @@
 
 // posts
 .block-posts,
-.block-projects
+.block-projects,
+.block-pages
     &--large
         .large
             .post,
+            .page,
             .project
                 @include media-breakpoint-up(desktop)
                     align-items: center
@@ -95,7 +97,8 @@
                             mask-repeat: no-repeat
                             mask-size: 100%
             @include in-page-without-sidebar
-                .post
+                .post,
+                .page
                     picture 
                         -webkit-mask-image: url('/assets/images/masks/mask-2.svg')
                         mask-image: url('/assets/images/masks/mask-2.svg')
@@ -109,15 +112,21 @@
                             aspect-ratio: 1
             @include in-page-without-sidebar
                 .post,
+                .page,
                 .project
                     &-content
                         position: relative
                         height: fit-content
                         padding-bottom: $spacing-4
                     .post-title,
+                    .page-title,
                     .project-title
                         @include h1
+                        a
+                            &, &:hover
+                                text-decoration: none
                     .post-subtitle,
+                    .page-subtitle,
                     .project-subtitle
                         @include h2
                     .more
