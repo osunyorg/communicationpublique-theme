@@ -22,6 +22,21 @@
                 @include media-breakpoint-up(desktop)
                     line-height: $lead-sidebar-line-height-desktop
                     font-size: $lead-sidebar-size-desktop
+        // to buy revue
+        .projects__page &
+            .actions
+                a
+                    text-decoration: none
+                    &:nth-child(2)
+                        @extend .btn
+                        @include button-icon(share-fill)
+                    &:last-child
+                        padding: var(--btn-padding)
+                        padding-top: 0
+                        padding-bottom: 0
+                        &::before
+                            @include icon-site(buy)
+                            margin-right: space(2)
 
 // events
 .events
@@ -130,11 +145,11 @@
                         @include h2
                     .more
                         display: none
-                    time
-                        bottom: 0
-                        color: $color-text
-                        position: absolute
-                        text-transform: uppercase
+                    // time
+                    //     bottom: 0
+                    //     color: $color-text
+                    //     position: absolute
+                    //     text-transform: uppercase
     
 // pages
 .block-pages
