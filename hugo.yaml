@@ -38,3 +38,11 @@ params:
   projects:
     index:
       truncate_description: 999 
+  image_sizes:
+    sections:
+      posts:
+        item:
+          desktop:  955
+      projects:
+        item:
+          desktop:  955

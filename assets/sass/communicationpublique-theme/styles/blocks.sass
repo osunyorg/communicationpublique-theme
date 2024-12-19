@@ -67,23 +67,6 @@
                         @include h4
                         text-transform: uppercase
 
-// posts
-.block-posts
-    &--large
-        .large
-            .post
-                @include in-page-without-sidebar
-                    .media
-                        margin-left: calc(-1 * var(--column-width))
-                        width: calc(#{columns(7)} - var(--grid-gutter))
-                        picture 
-                            -webkit-mask-image: url('/assets/images/masks/mask-2.svg')
-                            mask-image: url('/assets/images/masks/mask-2.svg')
-                            mask-repeat: no-repeat
-                            mask-size: 100%
-                            img
-                                aspect-ratio: 4/3
-
 // chapter
 .block-chapter
     @include in-page-without-sidebar
@@ -96,18 +79,46 @@
                 width: columns(5)
 
 // posts
-.block-posts
+.block-posts,
+.block-projects
     &--large
         .large
+            .post,
+            .project
+                @include media-breakpoint-up(desktop)
+                    align-items: center
+                @include in-page-without-sidebar
+                    .media
+                        margin-left: calc(-1 * var(--column-width))
+                        width: calc(#{columns(7)} - var(--grid-gutter))
+                        picture
+                            mask-repeat: no-repeat
+                            mask-size: 100%
             @include in-page-without-sidebar
                 .post
-                    .post-content
+                    picture 
+                        -webkit-mask-image: url('/assets/images/masks/mask-2.svg')
+                        mask-image: url('/assets/images/masks/mask-2.svg')
+                        img
+                            aspect-ratio: 4/3
+                .project
+                    picture 
+                        -webkit-mask-image: url('/assets/images/masks/mask-1.svg')
+                        mask-image: url('/assets/images/masks/mask-1.svg')
+                        img
+                            aspect-ratio: 1
+            @include in-page-without-sidebar
+                .post,
+                .project
+                    &-content
                         position: relative
                         height: fit-content
                         padding-bottom: $spacing-4
-                    .post-title
+                    .post-title,
+                    .project-title
                         @include h1
-                    .post-subtitle
+                    .post-subtitle,
+                    .project-subtitle
                         @include h2
                     .more
                         display: none
