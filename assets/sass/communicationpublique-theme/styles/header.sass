@@ -9,7 +9,7 @@
     width: pxToRem(54)
     &:hover
         background-color: transparentize(black, 0.9)
-    button,
+    button:not(.search__close),
     a
         text-align: center
         width: 100%
@@ -64,7 +64,7 @@ header#document-header
         .nav-level-1
             > li
                 @include media-breakpoint-up(desktop)
-                    a
+                    > a
                         text-decoration: underline
                         text-underline-offset: 4px
                         text-decoration-color: transparent
@@ -100,7 +100,7 @@ header#document-header
 
             .nav-level-2
                 > li a
-                    text-underline-offset: 5px
+                    text-decoration: none
         .dropdown-menu
             @include media-breakpoint-up(desktop)
                 html.has-menu-opened &

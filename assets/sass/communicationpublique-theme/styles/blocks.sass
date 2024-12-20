@@ -51,20 +51,26 @@
             .media
                 img
                     aspect-ratio: 7/5
+.events,
+.posts
     &--list
-        .event
+        .event,
+        article.post
             border-bottom: 0
-            &-content
+            // &.post-content,
+            // &.event-content
+            @include in-page-with-or-without-sidebar
                 .event-time,
+                .post-meta *,
                 .event-dates
                     font-weight: normal
+                    text-transform: none
                 .event-dates
                     @include body-text
                 .event-time
                     margin-top: space()
             .media
                 @include in-page-with-or-without-sidebar
-                    margin-right: var(--grid-gutter-negative)
                     width: calc(#{columns(2)} + (var(--column-width) * 2))
                 @include media-breakpoint-down(desktop)
                     max-width: 100%
@@ -85,6 +91,22 @@
                     .event-subtitle
                         @include h4
                         text-transform: uppercase
+.events--list
+    .media
+        @include in-page-with-or-without-sidebar
+            margin-right: var(--grid-gutter-negative)
+.posts--list
+    .media
+        @include in-page-with-or-without-sidebar
+            margin-left: var(--grid-gutter-negative)
+    &,
+    .posts_categories__term &,
+    .post__section &
+        article
+            .post-meta
+                time,
+                .post-reading-time
+                    @include meta
 
 // chapter
 .block-chapter
@@ -109,9 +131,18 @@
                 @include media-breakpoint-up(desktop)
                     align-items: center
                 @include in-page-without-sidebar
+                    .post,
+                    .page,
+                    .project
+                        &-meta
+                            time,
+                            .post-categories
+                                text-transform: uppercase
+                        &-content
+                            width: columns(6)
                     .media
-                        margin-left: calc(-1 * var(--column-width))
-                        width: calc(#{columns(7)} - var(--grid-gutter))
+                        margin-left: calc(-1 * var(--grid-gutter))
+                        width: calc(#{columns(7)} - var(--grid-gutter) - #{space(2)})
                         picture
                             mask-repeat: no-repeat
                             mask-size: 100%
@@ -128,7 +159,7 @@
                         -webkit-mask-image: url('/assets/images/masks/mask-1.svg')
                         mask-image: url('/assets/images/masks/mask-1.svg')
                         img
-                            aspect-ratio: 1
+                            aspect-ratio: 768/640
             @include in-page-without-sidebar
                 .post,
                 .page,
@@ -149,11 +180,6 @@
                         @include h2
                     .more
                         display: none
-                    // time
-                    //     bottom: 0
-                    //     color: $color-text
-                    //     position: absolute
-                    //     text-transform: uppercase
     
 // pages
 .block-pages
