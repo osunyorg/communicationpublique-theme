@@ -88,6 +88,9 @@ header#document-header
                     --btn-hover-color: #{$block-call-to-action-button-hover-color}
                     a
                         @extend .btn
+                        &,
+                        &:hover
+                            text-decoration: none
                         @include media-breakpoint-down(desktop)
                             width: 100%
                     @include media-breakpoint-down(desktop)
@@ -104,6 +107,9 @@ header#document-header
                             text-decoration: none
                 &:nth-last-child(2),
                 &.nav-search
+                    .search-button
+                        align-items: center
+                        justify-content: center
                     @include media-breakpoint-down(desktop)
                         border-bottom: 0
             @include media-breakpoint-up(desktop)
