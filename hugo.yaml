@@ -10,9 +10,6 @@ params:
           active: active
           source: "meta_description" # "Summary" | "meta_description"
           truncate: 0
-  search:
-    active: true
-    position: menu
   summary:
     position: hero
   search:
@@ -20,7 +17,6 @@ params:
     positions:
       - primary
       - footer
-      - fixed
   logo:
     header: '/assets/images/logo.svg'
     footer: '/assets/images/logo.svg'
