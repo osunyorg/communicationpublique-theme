@@ -1,18 +1,46 @@
 .projects
     @include media-breakpoint-up(desktop)
+        &,
         &__section
-            .projects
-                display: block
+            .projects--list
                 .project
-                    display: flex
-                    flex-direction: row
-                    gap: var(--grid-gutter)
+                    border-bottom: none
+                    .project-content
+                        justify-content: flex-start
+                        .project-description
+                            flex: unset
+                            @include media-breakpoint-down(xxl)
+                                max-width: unset
+                        .project-title
+                            @include h3
+                            a
+                                transition: color 0.3s ease
+                            &::after
+                                content: none
+                        .project-subtitle
+                            @include h4
+                            text-transform: uppercase
+                        [itemprop="abstract"]
+                            margin-top: $spacing-2
                     .media
-                        max-width: columns(3)
-                    [itemprop="abstract"]
-                        margin-top: $spacing-4
-                        width: columns(7)
-.projects__page
+                        margin-right: var(--grid-gutter-negative)
+                        aspect-ratio: 512 / 448
+                    &:hover
+                        .project-title a
+                            color: $color-accent-alt
+//         &__section
+//             .projects
+//                 display: block
+//                 .project
+//                     display: flex
+//                     flex-direction: row
+//                     gap: var(--grid-gutter)
+//                     .media
+//                         max-width: columns(3)
+//                     [itemprop="abstract"]
+//                         margin-top: $spacing-4
+//                         width: columns(7)
+// .projects__page
     .dropdown-share
         .share
             a

@@ -1,5 +1,14 @@
+// Typography
+h1, .h1, h3, .h3, h4, .h4, h5, .h5, h6, .h6, .lead
+    letter-spacing: -0.02em
+
+html
+    @include media-breakpoint-up(md)
+        font-size: Min(Max(1vw, 14px), 16px)
+
+// Links external icons and animation on hover
 header,
-footer#document-footer .footer-credit,
+footer#dopcument-footer .footer-credit,
 .block-chapter
     a, .link
         text-decoration: underline

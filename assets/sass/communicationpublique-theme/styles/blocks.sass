@@ -57,8 +57,6 @@
         .event,
         article.post
             border-bottom: 0
-            // &.post-content,
-            // &.event-content
             @include in-page-with-or-without-sidebar
                 .event-time,
                 .post-meta *,
@@ -96,8 +94,10 @@
         @include in-page-with-or-without-sidebar
             margin-right: var(--grid-gutter-negative)
 .posts--list
-    .media
-        @include in-page-with-or-without-sidebar
+    @include in-page-with-or-without-sidebar
+        .media,
+        .media:empty
+            aspect-ratio: 384 / 320
             margin-left: var(--grid-gutter-negative)
     &,
     .posts_categories__term &,
@@ -171,6 +171,7 @@
                     .page-title,
                     .project-title
                         @include h1
+                        font-size: Min(Max(5vw, $h1-size), $h1-size-desktop)
                         a
                             &, &:hover
                                 text-decoration: none
