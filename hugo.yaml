@@ -33,7 +33,10 @@ params:
       backlinks: true
   projects:
     index:
-      truncate_description: 999 
+      truncate_description: 999
+      layout: list
+      options:
+        year: true
   image_sizes:
     sections:
       posts:

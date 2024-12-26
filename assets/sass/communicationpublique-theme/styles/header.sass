@@ -93,6 +93,9 @@ header#document-header
                             text-decoration: none
                         @include media-breakpoint-down(desktop)
                             width: 100%
+                        &,
+                        &:hover
+                            text-decoration: none
                     @include media-breakpoint-down(desktop)
                         order: 2
                 &:nth-last-child(3)
@@ -125,8 +128,6 @@ header#document-header
                     padding-top: $spacing-5
             li.with-summary
                 position: relative
-                + li
-                    margin-top: $spacing-3
                 > a
                     @include h6
                     @include stretched-link(before)
@@ -137,6 +138,9 @@ header#document-header
                         @include media-breakpoint-down(desktop)
                             @include meta
                             font-weight: normal
+                @include media-breakpoint-down(desktop)
+                    + li
+                        margin-top: $spacing-3
 
     // search
     .nav-search
