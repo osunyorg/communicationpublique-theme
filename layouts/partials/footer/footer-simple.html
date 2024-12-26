@@ -15,8 +15,21 @@
     {{ end }}
   </div>
 </div>
-<div class="footer-functionalities container">
-  <div>
+<div class="container">
+  <div class="footer-social">
+    {{ $newsletter_menu := partial "GetMenu" "newsletter" }}
+    {{ if $newsletter_menu.items }}
+      {{ partial "commons/menu.html" (dict
+          "context" .
+          "kind" "newsletter"
+          "level" 1
+          "stop" 1
+          "class" "footer-cta"
+        )}}
+    {{ end }}
+    {{ partial "footer/social.html" }}
+  </div>
+  <div class="footer-legals">
     {{ partial "footer/i18n.html" . }}
     {{ if and (site.Params.search.active) (eq site.Params.search.position "footer")}}
       <div class="container footer-search">
@@ -28,26 +41,6 @@
         }}
       </div>
     {{ end }}
-  </div>
-  <div>
-    {{ $newsletter_menu := partial "GetMenu" "newsletter" }}
-    {{ if $newsletter_menu.items }}
-      {{ partial "commons/menu.html" (dict
-          "context" .
-          "kind" "newsletter"
-          "level" 1
-          "stop" 1
-          "class" "footer-button"
-        )}}
-      {{ end }}
-  </div>
-
-</div>
-<div class="container">
-  <div class="footer-social">
-    {{ partial "footer/social.html" }}
-  </div>
-  <div class="footer-legals">
     {{ partial "footer/legals.html" }}
   </div>
 </div>

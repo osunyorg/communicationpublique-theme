@@ -1,13 +1,35 @@
 header,
-footer,
+footer#document-footer .footer-credit,
+.block-chapter
+    a, .link
+        text-decoration: underline
+        text-decoration-color: $color-accent-alt
+        text-decoration-thickness: 2px
+        &:hover
+            text-decoration-color: $color-dark-blue
+header#document-header nav:not(.upper-menu),
+footer#document-footer,
 .block:not(.block-contact)
     a, .link
         &[target="_blank"]:not(.icon)
             &::after
                 @include icon-site(external)
                 display: inline-block
+                color: $color-accent-alt
                 font-size: 80% !important
                 margin-left: $spacing-1
+    @include media-breakpoint-up(desktop)
+        .nav-level-1:not(.footer-cta)
+            > li
+                > a
+                    text-decoration: underline
+                    text-underline-offset: 4px
+                    text-decoration-color: transparent
+                    text-decoration-thickness: 2px
+                    &.active
+                        text-decoration-color: $color-accent
+                    &:not(.active):hover
+                        text-decoration-color: $color-accent-alt
     
 .post-infos
     li
@@ -16,35 +38,74 @@ footer,
             text-transform: uppercase
 
 footer#document-footer
+    .container:first-child
+        padding-bottom: space(6)
+        + .container
+            align-items: unset
+            padding-top: 0
+            @include media-breakpoint-down(desktop)
+                margin-top: 0
+        @include media-breakpoint-up(desktop)
+            padding-bottom: space(9)
     .footer-legals,
     .footer-credit
         text-transform: uppercase
-    .footer-credit
-        a
-            text-decoration: underline
-            text-decoration-color: $color-accent-alt
-            text-decoration-thickness: 2px
-            &::after
-                color: $color-accent-alt
-            &:hover
-                text-decoration-color: $color-dark-blue
     .footer-social
+        display: flex
+        flex-direction: column
+        justify-content: space-between
         .site-links li
             align-items: baseline
-    .footer-button
+            a::after
+                content: none !important
+        @include media-breakpoint-down(desktop)
+            .site-links
+                order: -1
+    .footer-cta
         a
             @extend .btn
             align-items: baseline !important
+            &[target="_blank"]
+                &::after
+                    color: inherit
+                @include media-breakpoint-down(desktop)
+                    justify-content: center
+                    width: 100%
     .footer-site
         > address
             [itemprop="name"]
                 font-weight: bold
             [itemprop="streetAddress"]
                 display: inline
+        @include media-breakpoint-down(desktop)
+            margin-top: space(9)
     a[target="_blank"]:not(.icon)
         &::after
             font-size: pxToRem(20)
             align-self: baseline
+    @include media-breakpoint-down(desktop)
+        padding: space(9) 0
+        ul.nav-social,
+        ul.site-links,
+        ul.nav-legal
+            li
+                border-bottom: 2px solid $color-accent-alt
+                padding-bottom: space(3)
+                width: 100%
+                + li
+                    margin-top: space(4)
+        .site-links
+            li:last-child
+                border: none
+                padding-bottom: 0
+        .footer-legals,
+        ul.footer-cta
+            margin-top: space(6)
+        .footer-social
+            > li
+                flex-direction: row
+                justify-content: space-between
+
 
 .toc-container
     .toc-title
