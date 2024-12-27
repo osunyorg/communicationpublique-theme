@@ -1,6 +1,16 @@
 header.hero
+    @include media-breakpoint-up(md)
+        &--image-square
+            .hero-text
+                width: columns(8)
     .hero-text
+        .has-lead p
+            @include media-breakpoint-up(desktop)
+                @include media-breakpoint-down(xxl)
+                    font-size: Min(Max(5vw, $h1-size), $h5-size-desktop)
         h1
+            span
+                @include responsive-h1
             .events__page &,
             .posts__page &,
             .projects__page &
@@ -64,7 +74,7 @@ header.hero
     .breadcrumb-nav
         text-transform: uppercase
     // shape for figure
-    body:not(.persons__page) &
+    body:not(.persons__page, .projects__page) &
         figure
             margin-right: var(--grid-gutter-negative)
             width: calc(#{columns(6)} - var(--grid-gutter))

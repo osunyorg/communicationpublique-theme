@@ -26,6 +26,8 @@ header#document-header
                 padding-right: 0
                 li:not(.nav-search)
                     flex: 1
+                    font-weight: bold
+                    text-transform: uppercase
                     a
                         height: 100%
                         padding-left: var(--grid-gutter)
@@ -48,15 +50,16 @@ header#document-header
                 background: $header-upper-menu-background
                 a, span
                     color: $color-background
+            ul.nav-level-1
+                > li > a
+                    align-items: center
+                    display: flex
         @include media-breakpoint-up(md)
             ul
                 justify-content: space-between
                 margin-left: var(--grid-gutter-negative)
                 width: var(--grid-width)
                 li
-                    flex: 1
-                    text-transform: uppercase
-                    font-weight: bold
                     text-align: center
                     &:first-child
                         text-align: left

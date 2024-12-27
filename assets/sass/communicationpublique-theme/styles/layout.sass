@@ -2,20 +2,20 @@
 h1, .h1, h3, .h3, h4, .h4, h5, .h5, h6, .h6, .lead
     letter-spacing: -0.02em
 
-html
-    @include media-breakpoint-up(md)
-        font-size: Min(Max(1vw, 14px), 16px)
+@mixin responsive-h1
+    @include media-breakpoint-down(xxl)
+        font-size: Min(Max(5vw, $h1-size), $h1-size-desktop)
+    @include media-breakpoint-down(xl)
+        font-size: Min(Max(5vw, $h1-size), 60px)
+    @include media-breakpoint-down(xl)
+        font-size: Min(Max(5vw, $h1-size), 50px)
+@mixin responsive-h2
+    @include media-breakpoint-down(xxl)
+        font-size: Min(Max(4vw, $h2-size), $h2-size-desktop)
+    @include media-breakpoint-down(xl)
+        font-size: Min(Max(4vw, $h1-size), 40px)
 
 // Links external icons and animation on hover
-header,
-footer#dopcument-footer .footer-credit,
-.block-chapter
-    a, .link
-        text-decoration: underline
-        text-decoration-color: $color-accent-alt
-        text-decoration-thickness: 2px
-        &:hover
-            text-decoration-color: $color-dark-blue
 header#document-header nav:not(.upper-menu),
 footer#document-footer,
 .block:not(.block-contact)
@@ -39,86 +39,24 @@ footer#document-footer,
                         text-decoration-color: $color-accent
                     &:not(.active):hover
                         text-decoration-color: $color-accent-alt
-    
-.post-infos
-    li
-        &,
-        span
-            text-transform: uppercase
+header,
+footer#document-footer .footer-credit,
+.block-chapter
+    a, .link
+        text-decoration: underline
+        text-decoration-color: $color-accent-alt
+        text-decoration-thickness: 2px
+        &:hover
+            text-decoration-color: $color-dark-blue
 
-footer#document-footer
-    .container:first-child
-        padding-bottom: space(6)
-        + .container
-            align-items: unset
-            padding-top: 0
-            @include media-breakpoint-down(desktop)
-                margin-top: 0
-        @include media-breakpoint-up(desktop)
-            padding-bottom: space(9)
-    .footer-legals,
-    .footer-credit,
-    .search-button
-        text-transform: uppercase
-        line-height: var(--meta-line-height)
-    .search-button
-        margin-bottom: $spacing-2
-    .footer-social
-        display: flex
-        flex-direction: column
-        justify-content: space-between
-        .site-links li
-            align-items: baseline
-            a::after
-                content: none !important
-        @include media-breakpoint-down(desktop)
-            .site-links
-                order: -1
-    .footer-cta
-        a
-            @extend .btn
-            align-items: baseline !important
-            &[target="_blank"]
-                &::after
-                    color: inherit
-                @include media-breakpoint-down(desktop)
-                    justify-content: center
-                    width: 100%
-    .footer-site
-        > address
-            [itemprop="name"]
-                font-weight: bold
-            [itemprop="streetAddress"]
-                display: inline
-        @include media-breakpoint-down(desktop)
-            margin-top: space(9)
-    a[target="_blank"]:not(.icon)
-        &::after
-            font-size: pxToRem(20)
-            align-self: baseline
-    @include media-breakpoint-down(desktop)
-        padding: space(9) 0
-        ul.nav-social li,
-        ul.site-links li,
-        ul.nav-legal li,
-        .search-button
-                border-bottom: 2px solid $color-accent-alt
-                padding-bottom: space(3)
-                width: 100%
-                + li
-                    margin-top: space(4)
-        .site-links
-            li:last-child
-                border: none
-                padding-bottom: 0
-        .footer-legals,
-        ul.footer-cta
-            margin-top: space(6)
-        .footer-social
-            > li
-                flex-direction: row
-                justify-content: space-between
-
+.post
+    &-categories
+        width: fit-content
+    &-infos
+        li
+            &,
+            span
+                text-transform: uppercase
 
 .toc-container
     .toc-title

@@ -52,6 +52,11 @@
             .media
                 img
                     aspect-ratio: 7/5
+            @include media-breakpoint-down(xxl)
+                .event-title
+                    font-size: Min(Max(5vw, $h3-size), $h2-size)
+                .event-subtitle
+                    font-size: Min(Max(5vw, $h4-size), $h5-size)
 .events,
 .posts
     &--list
@@ -172,7 +177,7 @@
                     .page-title,
                     .project-title
                         @include h1
-                        font-size: Min(Max(5vw, $h1-size), $h1-size-desktop)
+                        @include responsive-h1
                         a
                             &, &:hover
                                 text-decoration: none
@@ -180,6 +185,7 @@
                     .page-subtitle,
                     .project-subtitle
                         @include h2
+                        @include responsive-h2
                     .more
                         display: none
     
@@ -210,11 +216,14 @@
 .block-timeline
     &--vertical
         .timeline-event
+            &::before
+                top: space(2)
             &::after
-                bottom: pxToRem(8)
-                top: pxToRem(37)
+                bottom: space()
+                top: space(12)
                 width: pxToRem(2)
-                left: calc(-#{$spacing-3} - 0.5px)
+                @include media-breakpoint-up(desktop)
+                    left: calc(-#{$spacing-3} - 0.5px)
 
 // persons
 .block-persons

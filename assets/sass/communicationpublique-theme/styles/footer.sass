@@ -1,0 +1,73 @@
+
+footer#document-footer
+    .container:first-child
+        padding-bottom: space(6)
+        + .container
+            align-items: unset
+            padding-top: 0
+            @include media-breakpoint-down(desktop)
+                margin-top: 0
+        @include media-breakpoint-up(desktop)
+            padding-bottom: space(9)
+    .footer-legals,
+    .footer-credit,
+    .search-button
+        text-transform: uppercase
+        line-height: var(--meta-line-height)
+    .search-button
+        margin-bottom: $spacing-2
+    .footer-social
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        .site-links li
+            align-items: baseline
+            a::after
+                content: none !important
+        @include media-breakpoint-down(desktop)
+            .site-links
+                order: -1
+    .footer-cta
+        a
+            @extend .btn
+            align-items: baseline !important
+            &[target="_blank"]
+                &::after
+                    color: inherit
+                @include media-breakpoint-down(desktop)
+                    justify-content: center
+                    width: 100%
+    .footer-site
+        > address
+            [itemprop="name"]
+                font-weight: bold
+            [itemprop="streetAddress"]
+                display: inline
+        @include media-breakpoint-down(desktop)
+            margin-top: space(9)
+    a[target="_blank"]:not(.icon)
+        &::after
+            font-size: pxToRem(20)
+            align-self: baseline
+    @include media-breakpoint-down(desktop)
+        padding: space(9) 0
+        ul.nav-social li,
+        ul.site-links li,
+        ul.nav-legal li,
+        .search-button
+                border-bottom: 2px solid $color-accent-alt
+                padding-bottom: space(3)
+                width: 100%
+                + li
+                    margin-top: space(4)
+        .site-links
+            li:last-child
+                border: none
+                padding-bottom: 0
+        .footer-legals,
+        ul.footer-cta
+            margin-top: space(6)
+        .footer-social
+            > li
+                flex-direction: row
+                justify-content: space-between
