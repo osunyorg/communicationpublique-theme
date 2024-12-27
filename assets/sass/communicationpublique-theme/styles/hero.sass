@@ -3,6 +3,8 @@ header.hero
         &--image-square
             .hero-text
                 width: columns(8)
+    @include media-breakpoint-down(md)
+        margin-bottom: $block-space-y
     .hero-text
         .has-lead p
             @include media-breakpoint-up(desktop)

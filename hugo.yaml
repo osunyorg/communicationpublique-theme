@@ -48,3 +48,7 @@ params:
       projects:
         item:
           desktop:  955
+    blocks:
+      persons:
+        large:
+          desktop:  555

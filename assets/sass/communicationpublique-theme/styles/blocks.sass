@@ -1,3 +1,11 @@
+.block
+    @include media-breakpoint-down(desktop)
+        margin-top: $block-space-y
+        margin-bottom: $block-space-y
+    @include in-page-without-sidebar
+        margin-top: $block-space-y-desktop
+        margin-bottom: $block-space-y-desktop
+    
 // categories
 .post .post-categories,
 .post-infos .post-categories,
@@ -66,12 +74,22 @@
                 .event-subtitle
                     font-size: Min(Max(5vw, $h4-size), $h5-size)
 .events,
-.posts
+.posts,
+.block-posts,
     &--list
         .event,
         article.post
-            border-bottom: 0
+            .media
+                img
+                    height: 100%
+                    object-fit: cover
+                    object-position: center
+                @include in-page-with-or-without-sidebar
+                    width: calc(#{columns(2)} + (var(--column-width) * 2))
             @include in-page-with-or-without-sidebar
+                border-bottom: 0
+                margin-bottom: $spacing-5
+                padding-bottom: 0
                 .event-time,
                 .post-meta *,
                 .event-dates
@@ -81,13 +99,6 @@
                     @include body-text
                 .event-time
                     margin-top: space()
-            .media
-                img
-                    height: 100%
-                    object-fit: cover
-                    object-position: center
-                @include in-page-with-or-without-sidebar
-                    width: calc(#{columns(2)} + (var(--column-width) * 2))
             @include media-breakpoint-down(desktop)
                 flex-direction: column
                 .media 
@@ -99,8 +110,6 @@
                     width: 100%
                     max-width: 100%
             @include media-breakpoint-up(desktop)
-                margin-bottom: $spacing-5
-                padding-bottom: 0
                 &-content
                     .event-title
                         @include h3
@@ -109,7 +118,8 @@
                         @include h4
                         text-transform: uppercase
 
-.posts--list
+.posts--list,
+.block-posts--list,
     &,
     .posts_categories__term &,
     .post__section &
@@ -136,6 +146,11 @@
                 width: columns(5)
 
 // posts
+.post
+    @include media-breakpoint-down(desktop)
+        .media:empty
+            display: none
+// list blocks
 .block-posts,
 .block-projects,
 .block-pages
@@ -244,15 +259,35 @@
 
 // persons
 .block-persons
+    article.person
+        .person-name
+            text-transform: uppercase
     &.block-with-long-text
         .person
             .persons
                 @include in-page-without-sidebar
                     .avatar
                         width: columns(1.5)
-    article.person
-        .person-name
-            text-transform: uppercase
+    &--large
+        article.person
+            .person-name
+                font-weight: $h2-weight
+                letter-spacing: -0.224px
+                font-family: $font-condensed
+            [itemprop="jobTitle"]
+                @include lead-hero
+            .more
+                @extend .sr-only
+            @include media-breakpoint-down(desktop)
+                flex-direction: row
+                .description
+                    margin-top: 0
+                [itemprop="jobTitle"]
+                    @include small
+                    text-align: left
+                    margin-top: space()
+                .avatar
+                    width: columns(4)
 
 // organizations
 .block-organizations
