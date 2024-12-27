@@ -172,7 +172,6 @@
                         mask-image: url('/assets/images/masks/mask-1.svg')
                         img
                             aspect-ratio: 768/640
-            @include in-page-without-sidebar
                 .post,
                 .page,
                 .project
@@ -194,6 +193,10 @@
                         @include responsive-h2
                     .more
                         display: none
+            @include in-page-with-sidebar
+                .media img
+                    aspect-ratio: 1
+
 
 // meta
 .post,
