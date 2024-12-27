@@ -20,19 +20,20 @@ header#document-header
     nav.upper-menu
         .container
             ul
+                gap: 0
                 margin-right: var(--grid-gutter-negative)
                 padding-left: 0
                 padding-right: 0
                 li:not(.nav-search)
                     flex: 1
                     a
-                        align-items: center
-                        display: flex
                         height: 100%
                         padding-left: var(--grid-gutter)
                         padding-right: var(--grid-gutter)
                         transition: background-color 0.3s ease
+                        width: 100%
                         em
+                            display: inline
                             font-style: normal
                             opacity: 0.7
                         &:not([href*="https://"], [href*="http://"])
@@ -42,24 +43,21 @@ header#document-header
                         [href*="https://"],
                         [href*="http://"]
                             background-color: #003380
-        @include media-breakpoint-down(desktop)
-            ul
-                gap: 0
+        @include media-breakpoint-down(md)
             html.has-menu-opened &
                 background: $header-upper-menu-background
                 a, span
                     color: $color-background
-        @include media-breakpoint-up(desktop)
+        @include media-breakpoint-up(md)
             ul
-                gap: 0
                 justify-content: space-between
                 margin-left: var(--grid-gutter-negative)
                 width: var(--grid-width)
                 li
                     flex: 1
-                    text-align: center
                     text-transform: uppercase
                     font-weight: bold
+                    text-align: center
                     &:first-child
                         text-align: left
                     &:last-child
