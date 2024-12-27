@@ -1,6 +1,8 @@
 // categories
 .post .post-categories,
-.post-infos .post-categories
+.post-infos .post-categories,
+.post .posts-taxonomies,
+.post-infos .posts-taxonomies
     li
         a
             background-color: $color-accent
@@ -45,11 +47,17 @@
 
 // events
 .events
+    &--list
+        .media
+            aspect-ratio: 1
+            @include in-page-with-or-without-sidebar
+                margin-right: var(--grid-gutter-negative)
     &--grid
         .event
             .event-dates
                 font-weight: normal
             .media
+                margin-bottom: $spacing-3
                 img
                     aspect-ratio: 7/5
             @include media-breakpoint-down(xxl)
@@ -74,17 +82,22 @@
                 .event-time
                     margin-top: space()
             .media
-                @include in-page-with-or-without-sidebar
-                    width: calc(#{columns(2)} + (var(--column-width) * 2))
-                @include media-breakpoint-down(desktop)
-                    max-width: 100%
-                    margin-bottom: 0
-                    margin-top: $spacing-2
-                    order: 2
                 img
-                    aspect-ratio: 1
+                    height: 100%
                     object-fit: cover
                     object-position: center
+                @include in-page-with-or-without-sidebar
+                    width: calc(#{columns(2)} + (var(--column-width) * 2))
+            @include media-breakpoint-down(desktop)
+                flex-direction: column
+                .media 
+                    aspect-ratio: 1
+                    margin-left: var(--grid-gutter-negative)
+                    margin-right: var(--grid-gutter)
+                    margin-bottom: $spacing-3
+                    order: -1
+                    width: 100%
+                    max-width: 100%
             @include media-breakpoint-up(desktop)
                 margin-bottom: $spacing-5
                 padding-bottom: 0
@@ -95,16 +108,8 @@
                     .event-subtitle
                         @include h4
                         text-transform: uppercase
-.events--list
-    .media
-        @include in-page-with-or-without-sidebar
-            margin-right: var(--grid-gutter-negative)
+
 .posts--list
-    @include in-page-with-or-without-sidebar
-        .media,
-        .media:empty
-            aspect-ratio: 384 / 320
-            margin-left: var(--grid-gutter-negative)
     &,
     .posts_categories__term &,
     .post__section &
@@ -113,6 +118,11 @@
                 time,
                 .post-reading-time
                     @include meta
+    @include in-page-with-or-without-sidebar
+        .media,
+        .media:empty
+            aspect-ratio: 384 / 320
+            margin-left: var(--grid-gutter-negative)
 
 // chapter
 .block-chapter
@@ -140,10 +150,6 @@
                     .post,
                     .page,
                     .project
-                        &-meta
-                            time,
-                            .post-categories
-                                text-transform: uppercase
                         &-content
                             width: columns(6)
                     .media
@@ -188,7 +194,15 @@
                         @include responsive-h2
                     .more
                         display: none
-    
+
+// meta
+.post,
+.page,
+.project
+    & &-categories,
+    time
+        text-transform: uppercase
+
 // pages
 .block-pages
     &--list

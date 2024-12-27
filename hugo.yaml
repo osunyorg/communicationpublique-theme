@@ -31,6 +31,9 @@ params:
   persons:
     single:
       backlinks: true
+  posts:
+    index:
+      layout: list
   projects:
     index:
       truncate_description: 999
