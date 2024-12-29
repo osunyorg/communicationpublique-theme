@@ -159,6 +159,9 @@
             .post,
             .page,
             .project
+                a
+                    &, &:hover
+                        text-decoration: none
                 @include media-breakpoint-up(desktop)
                     align-items: center
                 @include in-page-without-sidebar
@@ -196,22 +199,28 @@
                     .post-title,
                     .page-title,
                     .project-title
-                        @include h1
-                        @include responsive-h1
-                        a
-                            &, &:hover
-                                text-decoration: none
+                            @include h1
+                            @include responsive-h1
                     .post-subtitle,
                     .page-subtitle,
                     .project-subtitle
-                        @include h2
-                        @include responsive-h2
+                            @include h2
+                            @include responsive-h2
                     .more
                         display: none
             @include in-page-with-sidebar
                 .media img
                     aspect-ratio: 1
-
+                @include media-breakpoint-down(xxl)
+                    .post-title,
+                    .page-title,
+                    .project-title
+                        @include h3
+                    .post-subtitle,
+                    .page-subtitle,
+                    .project-subtitle
+                        @include h4
+                        text-transform: uppercase
 
 // meta
 .post,
