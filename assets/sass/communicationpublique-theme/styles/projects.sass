@@ -44,13 +44,15 @@
                 z-index: 9
                 @include media-breakpoint-down(xl)
                     left: offset(2.5)
+                @media (min-width: 1920px)
+                    left: offset(1.6)
                 button
                     border: 1px solid var(--btn-background) 
+                    flex-direction: row-reverse
                     padding: var(--btn-padding)
+                    width: auto
                     @include media-breakpoint-down(xl)
-                        flex-direction: row-reverse
                         padding: $btn-padding
-                        width: auto
     .document-content
         @include media-breakpoint-up(desktop)
             .blocks
@@ -72,10 +74,14 @@
                         width: columns(6.2)
                         @include media-breakpoint-down(xl)
                             width: columns(7.25)
+                        @media (min-width: 1920px)
+                            width: columns(4.8)
                         a
                             padding: var(--btn-padding)
                             @include media-breakpoint-down(xl)
                                 padding: $btn-padding
+                            @media (min-width: 1920px)
+                                min-width: auto
                             &::after
                                 display: none
                             &:first-child
