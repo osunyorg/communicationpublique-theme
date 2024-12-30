@@ -74,3 +74,12 @@ footer#document-footer .footer-credit,
         .description
             display: flex
             flex-direction: column
+
+// blocks
+body.full-width
+    @include media-breakpoint-up(desktop)
+        .block:last-child
+            margin-bottom: var(--block-space-y)
+            &.block-call_to_action--no_background
+                .block-content
+                    padding-bottom: var(--block-space-y)

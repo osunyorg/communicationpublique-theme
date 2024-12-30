@@ -72,6 +72,8 @@ header#document-header
                 display: flex
                 flex-direction: column
                 padding-bottom: var(--grid-gutter)
+            @include media-breakpoint-up(desktop)
+                align-items: center
             > li
                 @include media-breakpoint-down(desktop)
                     border-bottom: 2px solid $color-accent-alt
