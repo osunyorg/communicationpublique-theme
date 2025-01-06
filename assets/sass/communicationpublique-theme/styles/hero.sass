@@ -3,6 +3,9 @@ header.hero
         &--image-square
             .hero-text
                 width: columns(8)
+        &--with-image
+            .content
+                gap: var(--grid-gutter)
     @include media-breakpoint-down(md)
         body:not(.projects__page) &
             margin-bottom: $block-space-y
@@ -101,7 +104,7 @@ header.hero
 // persons
 .persons__page
     .hero--with-image
-        .content 
+        .content
             figure
                 display: flex
                 align-items: center
