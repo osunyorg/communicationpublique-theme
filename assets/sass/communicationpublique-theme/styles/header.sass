@@ -1,21 +1,3 @@
-@mixin hover-gray
-    align-items: center
-    display: flex
-    justify-content: space-between
-    @include media-breakpoint-up(desktop)
-        aspect-ratio: 1
-        border-radius: 100%
-        height: pxToRem(54)
-        justify-content: center
-        transition: background-color 0.3s ease
-        width: pxToRem(54)
-        &:hover
-            background-color: transparentize(black, 0.9)
-    button:not(.search__close),
-    a
-        text-align: center
-        width: 100%
-
 header#document-header
     nav.upper-menu
         .container

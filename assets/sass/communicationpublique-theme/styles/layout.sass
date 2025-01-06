@@ -15,6 +15,25 @@ h1, .h1, h3, .h3, h4, .h4, h5, .h5, h6, .h6, .lead
     @include media-breakpoint-down(xl)
         font-size: Min(Max(4vw, $h1-size), 40px)
 
+// mixins
+@mixin hover-gray
+    align-items: center
+    display: flex
+    justify-content: space-between
+    @include media-breakpoint-up(desktop)
+        aspect-ratio: 1
+        border-radius: 100%
+        height: pxToRem(54)
+        justify-content: center
+        transition: background-color 0.3s ease
+        width: pxToRem(54)
+        &:hover
+            background-color: transparentize(black, 0.9)
+    button:not(.search__close),
+    a
+        text-align: center
+        width: 100%
+
 // Links external icons and animation on hover
 header#document-header nav:not(.upper-menu),
 footer#document-footer,
@@ -59,15 +78,6 @@ footer#document-footer .footer-credit,
             span
                 color: $color-text-disabled
 
-.post
-    &-taxonomies
-        width: fit-content
-    &-infos
-        li
-            &,
-            span
-                text-transform: uppercase
-
 // toc
 .toc-container
     .toc-title
@@ -87,9 +97,24 @@ footer#document-footer .footer-credit,
                         text-decoration-color: $color-accent !important
 
 // Events section
-.events-actions
-    .chip
-        border-radius: 0
+.events__page
+    .events-actions
+        .chip
+            border-radius: 0
+    .event-infos
+        > li
+            > span
+                color: var(--color-text)
+            @include media-breakpoint-up(desktop)
+                padding-top: 0
+                padding-bottom: space(10)
+        .share
+            @include media-breakpoint-up(desktop)
+                li
+                    &:first-child a
+                        padding-left: $spacing-2
+                    a
+                        @include hover-gray
 
 // persons page
 .persons--grid

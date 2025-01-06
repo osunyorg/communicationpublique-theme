@@ -1,0 +1,32 @@
+// categories
+.post
+    &-taxonomies
+        width: fit-content
+    &-infos
+        li
+            &,
+            span
+                text-transform: uppercase
+
+// social media buttons
+.social-share
+    @include media-breakpoint-up(desktop)
+        ul.share
+            margin-right: 0
+            margin-top: -($spacing-2)
+            li
+                a
+                    align-items: center
+                    aspect-ratio: 1
+                    border-radius: 100%
+                    border-top-left-radius: 0
+                    border-top-right-radius: 0
+                    display: inline-flex
+                    padding-top: space(1.5)
+                    height: pxToRem(54)
+                    justify-content: center
+                    transition: background-color 0.3s ease
+                    width: pxToRem(54)
+                    &::before
+                    &:hover
+                        background-color: transparentize(black, 0.9)
