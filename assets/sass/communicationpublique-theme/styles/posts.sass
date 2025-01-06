@@ -30,3 +30,24 @@
                     &::before
                     &:hover
                         background-color: transparentize(black, 0.9)
+
+// lists
+.posts--list,
+.block-posts--list
+    &,
+    .posts_categories__term &,
+    .posts__section &
+        article
+            border-bottom: 0
+            .post-subtitle
+                margin-top: space(2)
+            .post-categories
+                margin-bottom: space(4)
+            .post-categories,
+            [itemprop="abstract"]
+                margin-top: space(4)
+            @include media-breakpoint-down(desktop)
+                .post-content
+                    margin-left: 0
+                .post-meta
+                    margin-top: space(4)
