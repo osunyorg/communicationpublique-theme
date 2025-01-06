@@ -94,7 +94,6 @@
                 margin-bottom: $spacing-5
                 padding-bottom: 0
                 .event-time,
-                .post-meta *,
                 .event-dates
                     font-weight: normal
                     text-transform: none
@@ -122,22 +121,6 @@
                         @include h4
                         text-transform: uppercase
 
-.posts--list,
-.block-posts--list,
-    &,
-    .posts_categories__term &,
-    .post__section &
-        article
-            .post-meta
-                time,
-                .post-reading-time
-                    @include meta
-    @include in-page-with-or-without-sidebar
-        .media,
-        .media:empty
-            aspect-ratio: 384 / 320
-            margin-left: var(--grid-gutter-negative)
-
 // chapter
 .block-chapter
     @include in-page-without-sidebar
@@ -149,11 +132,6 @@
                 margin-right: calc(-1 * var(--column-width))
                 width: columns(5)
 
-// posts
-.post
-    @include media-breakpoint-down(desktop)
-        .media:empty
-            display: none
 // list blocks
 .block-posts,
 .block-projects,
@@ -225,6 +203,32 @@
                     .project-subtitle
                         @include h4
                         text-transform: uppercase
+
+// posts
+.post
+    @include media-breakpoint-down(desktop)
+        .media:empty
+            display: none
+
+.posts--list,
+.block-posts--list,
+    &,
+    .posts_categories__term &,
+    .post__section &
+        article
+            .post-meta
+                time,
+                .post-reading-time
+                    @include in-page-with-or-without-sidebar
+                        @include meta
+    @include in-page-without-sidebar
+        .post-content
+            width: columns(6)
+    @include in-page-with-or-without-sidebar
+        .media,
+        .media:empty
+            aspect-ratio: 384 / 320
+            margin-left: var(--grid-gutter-negative)
 
 // meta
 .post,
