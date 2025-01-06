@@ -35,6 +35,7 @@ params:
     index:
       layout: list
   projects:
+    date_format: "2006"
     index:
       truncate_description: 999
       layout: list
