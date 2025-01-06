@@ -322,3 +322,19 @@
                         display: inline
             .media
                 border-radius: 100%
+
+// links
+.block-links
+    ul
+        .link-content
+            a
+                @include h3
+            p
+                @include body-text
+            @include media-breakpoint-down(desktop)
+                padding: 0
+                p
+                    margin-top: 0
+        @include media-breakpoint-down(desktop)
+            li + li
+                margin-top: $spacing-4
