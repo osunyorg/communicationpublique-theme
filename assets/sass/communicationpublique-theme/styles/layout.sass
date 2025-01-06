@@ -78,8 +78,9 @@ footer#document-footer .footer-credit,
 // blocks
 body.full-width
     @include media-breakpoint-up(desktop)
+        main:not(.page-with-blocks, .page-with-map)
+            padding-bottom: $spacing-6
         .block:last-child
-            margin-bottom: var(--block-space-y)
             &.block-call_to_action--no_background
                 .block-content
-                    padding-bottom: var(--block-space-y)
+                    padding-bottom: 0
