@@ -62,6 +62,18 @@ footer#document-footer .footer-credit,
     .toc-title
         font-weight: bold
         text-transform: uppercase
+    .toc
+        ol
+            li
+                a
+                    text-decoration-color: transparent !important 
+                    text-decoration: underline
+                    text-decoration-thickness: 2px
+                    &:hover
+                        text-decoration-color: $color-accent-alt !important
+                    &.active
+                        color: var(--color-text)
+                        text-decoration-color: $color-accent !important
 
 // Events section
 .events-actions
