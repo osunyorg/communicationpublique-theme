@@ -123,6 +123,36 @@ footer#document-footer .footer-credit,
             display: flex
             flex-direction: column
 
+// navigation
+.siblings-navigation
+    li.next,
+    li.previous
+        span.has-animation
+            margin-bottom: 0
+            display: block !important
+            [aria-hidden="true"]::after,
+            [aria-hidden="true"]::before
+                content: ''
+                font-family: unset
+                margin-left: 0
+                margin-right: 0
+                height: pxToRem(12)
+                width: pxToRem(12)
+        @include media-breakpoint-down(desktop)
+            &::after,
+            &::before
+                display: none
+    li.previous
+        a
+            span.has-animation
+                align-items: baseline
+                display: flex !important
+                justify-content: flex-end
+                flex-direction: row-reverse
+                [aria-hidden="true"]
+                    margin-left: 0
+                    margin-right: space(2)
+
 // blocks
 body.full-width
     @include media-breakpoint-up(desktop)
