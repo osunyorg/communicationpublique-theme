@@ -105,6 +105,11 @@ footer#document-footer .footer-credit,
         > li
             > span
                 color: var(--color-text)
+                + ul
+                    margin-top: space(4)
+            ul
+                li + li
+                    margin-top: space(2)
             @include media-breakpoint-up(desktop)
                 padding-top: 0
                 padding-bottom: space(10)

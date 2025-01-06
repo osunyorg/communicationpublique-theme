@@ -309,6 +309,17 @@
                     margin-top: space()
                 .avatar
                     width: columns(4)
+        // large in event page to imitate signatures
+        .events__page &
+            article.person
+                gap: calc(var(--grid-gutter) / 2)
+                .person-name
+                    @include h4
+                    + div
+                        @include body-text
+                        margin-top: space(2)
+                .avatar
+                    width: columns(1.5)
 
 // organizations
 .block-organizations
