@@ -49,6 +49,16 @@ footer#document-footer .footer-credit,
         &:hover
             text-decoration-color: $color-dark-blue
 
+// breadcrumb | fil d'ariane
+.breadcrumb 
+    li
+        &, a
+            text-transform: uppercase
+        &.active
+            &::before,
+            span
+                color: $color-text-disabled
+
 .post
     &-categories
         width: fit-content
@@ -58,6 +68,7 @@ footer#document-footer .footer-credit,
             span
                 text-transform: uppercase
 
+// toc
 .toc-container
     .toc-title
         font-weight: bold
