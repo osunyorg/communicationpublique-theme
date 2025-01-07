@@ -309,6 +309,10 @@
                 width: pxToRem(2)
                 @include media-breakpoint-up(desktop)
                     left: calc(-#{$spacing-3} - 0.5px)
+        .block-title + &
+            margin-top: $spacing-3
+            @include media-breakpoint-up(desktop)
+                margin-top: $spacing-4
 
 // persons
 .block-persons
