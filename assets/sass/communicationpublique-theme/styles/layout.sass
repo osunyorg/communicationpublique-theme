@@ -37,7 +37,9 @@ h1, .h1, h3, .h3, h4, .h4, h5, .h5, h6, .h6, .lead
 // Links external icons and animation on hover
 header#document-header nav:not(.upper-menu),
 footer#document-footer,
-.block:not(.block-contact)
+.contacts-details,
+.block:not(.block-contact),
+.block-contact .contacts > div > *:not(.socials-list)
     a, .link
         &[target="_blank"]:not(.icon)
             &::after
@@ -46,6 +48,9 @@ footer#document-footer,
                 color: $color-accent-alt
                 font-size: 80% !important
                 margin-left: $spacing-1
+
+header#document-header nav:not(.upper-menu),
+footer#document-footer
     @include media-breakpoint-up(desktop)
         .nav-level-1:not(.footer-cta)
             > li
@@ -60,7 +65,9 @@ footer#document-footer,
                         text-decoration-color: $color-accent-alt
 header,
 footer#document-footer .footer-credit,
-.block-chapter
+.block-chapter,
+.contacts-details,
+.block-contact .contacts > div > *:not(.socials-list)
     a, .link
         text-decoration: underline
         text-decoration-color: $color-accent-alt
