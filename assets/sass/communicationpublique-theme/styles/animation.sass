@@ -30,13 +30,15 @@
         .persons--list &,
         .persons--grid &,
         .block-links &,
-        .block-pages--list.with-description &
+        .block-pages--list.with-description &,
+        .persons--grid &
             height: pxToRem(22)
             width: pxToRem(22)
             @include media-breakpoint-up(desktop)
                 height: pxToRem(28)
                 width: pxToRem(28)
-        .block-persons--large &
+        .block-persons--large &,
+        .block-projects--grid &
             height: pxToRem(22)
             width: pxToRem(22)
             @include media-breakpoint-up(desktop)
@@ -46,7 +48,7 @@
             @include media-breakpoint-down(desktop)
                 height: pxToRem(18)
                 width: pxToRem(18)
-        .large &
+        body.full-width .large &
             height: pxToRem(24)
             width: pxToRem(24)
             @include media-breakpoint-up(desktop)
