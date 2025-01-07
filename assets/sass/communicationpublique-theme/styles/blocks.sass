@@ -59,6 +59,12 @@
                         padding: var(--btn-padding)
                         padding-top: 0
                         padding-bottom: 0
+    &--no_background
+        @include in-page-without-sidebar
+            .block-content
+                padding-top: 0
+            .top
+                margin-bottom: 0
 
 // events
 .events
@@ -151,6 +157,9 @@
 .block-projects,
 .block-pages
     &--large
+        .post-meta,
+        time
+            color: var(--color-text)
         .large
             .post,
             .page,
@@ -173,9 +182,6 @@
                             mask-repeat: no-repeat
                             mask-size: 100%
             @include in-page-without-sidebar
-                .post-meta,
-                time
-                    color: var(--color-text)
                 .post,
                 .page
                     picture 
