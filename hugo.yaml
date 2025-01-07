@@ -54,3 +54,6 @@ params:
       persons:
         large:
           desktop:  555
+      events:
+        grid:
+          desktop:  555
