@@ -1,10 +1,14 @@
 .block
-    @include media-breakpoint-down(desktop)
-        margin-top: $block-space-y
-        margin-bottom: $block-space-y
     @include in-page-without-sidebar
         margin-top: $block-space-y-desktop
         margin-bottom: $block-space-y-desktop
+    @include media-breakpoint-down(desktop)
+        margin-top: $block-space-y
+        margin-bottom: $block-space-y
+    @include media-breakpoint-up(desktop)
+        .top
+            margin-bottom: $spacing-4
+
     
 // categories
 .post .post-categories,
@@ -63,6 +67,15 @@
             aspect-ratio: 1
             @include in-page-with-or-without-sidebar
                 margin-right: var(--grid-gutter-negative)
+        @include in-page-without-sidebar
+            .event-content
+                grid-template-columns: repeat(8, 1fr)
+                > .event-schedule
+                    grid-column: 1 / 4
+                .event-title,
+                .event-subtitle,
+                .event-description
+                    grid-column: 4 / 12
     &--grid
         .event
             .event-dates
@@ -88,13 +101,12 @@
                     object-fit: cover
                     object-position: center
                 @include in-page-with-or-without-sidebar
-                    width: calc(#{columns(2)} + (var(--column-width) * 2))
+                    width: calc(#{columns(2.2)} + (var(--column-width) * 2))
             @include in-page-with-or-without-sidebar
                 border-bottom: 0
                 margin-bottom: $spacing-5
                 padding-bottom: 0
                 .event-time,
-                .post-meta *,
                 .event-dates
                     font-weight: normal
                     text-transform: none
@@ -102,6 +114,8 @@
                     @include body-text
                 .event-time
                     margin-top: space()
+                    &, span
+                        font-weight: 700
             @include media-breakpoint-down(desktop)
                 flex-direction: column
                 .media 
@@ -121,22 +135,6 @@
                         @include h4
                         text-transform: uppercase
 
-.posts--list,
-.block-posts--list,
-    &,
-    .posts_categories__term &,
-    .post__section &
-        article
-            .post-meta
-                time,
-                .post-reading-time
-                    @include meta
-    @include in-page-with-or-without-sidebar
-        .media,
-        .media:empty
-            aspect-ratio: 384 / 320
-            margin-left: var(--grid-gutter-negative)
-
 // chapter
 .block-chapter
     @include in-page-without-sidebar
@@ -148,11 +146,6 @@
                 margin-right: calc(-1 * var(--column-width))
                 width: columns(5)
 
-// posts
-.post
-    @include media-breakpoint-down(desktop)
-        .media:empty
-            display: none
 // list blocks
 .block-posts,
 .block-projects,
@@ -225,6 +218,31 @@
                         @include h4
                         text-transform: uppercase
 
+// posts
+.post
+    @include media-breakpoint-down(desktop)
+        .media:empty
+            display: none
+
+.posts--list,
+.block-posts--list,
+    &,
+    .posts_categories__term &,
+    .post__section &
+        article
+            .post-meta
+                time,
+                .post-reading-time
+                    @include in-page-with-or-without-sidebar
+                        @include meta
+    @include in-page-without-sidebar
+        .post-content
+            width: columns(6)
+    @include in-page-with-or-without-sidebar
+        .media,
+        .media:empty
+            aspect-ratio: 384 / 320
+            margin-left: var(--grid-gutter-negative)
 // projects
 .block-projects
     &--grid
@@ -251,10 +269,20 @@
     &--list
         &.with-description
             .block-content
+                .top
+                    .description
+                        p
+                            text-transform: none
+                        @include media-breakpoint-down(xxl)
+                            @include h3
+                            font-weight: normal
+                            font-family: $font-normal
                 @include in-page-without-sidebar
                     .top
                         .description p
                             @include lead
+                            @include media-breakpoint-down(xxl)
+                                font-size: Min(Max(3vw, $lead-size), 40px)
                     .list
                         li
                             text-transform: uppercase
@@ -313,6 +341,17 @@
                     margin-top: space()
                 .avatar
                     width: columns(4)
+        // large in event page to imitate signatures
+        .events__page &
+            article.person
+                gap: calc(var(--grid-gutter) / 2)
+                .person-name
+                    @include h4
+                    + div
+                        @include body-text
+                        margin-top: space(2)
+                .avatar
+                    width: columns(1.5)
 
 // organizations
 .block-organizations
@@ -326,3 +365,19 @@
                         display: inline
             .media
                 border-radius: 100%
+
+// links
+.block-links
+    ul
+        .link-content
+            a
+                @include h3
+            p
+                @include body-text
+            @include media-breakpoint-down(desktop)
+                padding: 0
+                p
+                    margin-top: 0
+        @include media-breakpoint-down(desktop)
+            li + li
+                margin-top: $spacing-4

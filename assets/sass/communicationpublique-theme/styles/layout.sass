@@ -15,10 +15,31 @@ h1, .h1, h3, .h3, h4, .h4, h5, .h5, h6, .h6, .lead
     @include media-breakpoint-down(xl)
         font-size: Min(Max(4vw, $h1-size), 40px)
 
+// mixins
+@mixin hover-gray
+    align-items: center
+    display: flex
+    justify-content: space-between
+    @include media-breakpoint-up(desktop)
+        aspect-ratio: 1
+        border-radius: 100%
+        height: pxToRem(54)
+        justify-content: center
+        transition: background-color 0.3s ease
+        width: pxToRem(54)
+        &:hover
+            background-color: transparentize(black, 0.9)
+    button:not(.search__close),
+    a
+        text-align: center
+        width: 100%
+
 // Links external icons and animation on hover
 header#document-header nav:not(.upper-menu),
 footer#document-footer,
-.block:not(.block-contact)
+.contacts-details,
+.block:not(.block-contact),
+.block-contact .contacts > div > *:not(.socials-list)
     a, .link
         &[target="_blank"]:not(.icon)
             &::after
@@ -27,6 +48,9 @@ footer#document-footer,
                 color: $color-accent-alt
                 font-size: 80% !important
                 margin-left: $spacing-1
+
+header#document-header nav:not(.upper-menu),
+footer#document-footer
     @include media-breakpoint-up(desktop)
         .nav-level-1:not(.footer-cta)
             > li
@@ -41,7 +65,9 @@ footer#document-footer,
                         text-decoration-color: $color-accent-alt
 header,
 footer#document-footer .footer-credit,
-.block-chapter
+.block-chapter,
+.contacts-details,
+.block-contact .contacts > div > *:not(.socials-list)
     a, .link
         text-decoration: underline
         text-decoration-color: $color-accent-alt
@@ -49,24 +75,58 @@ footer#document-footer .footer-credit,
         &:hover
             text-decoration-color: $color-dark-blue
 
-.post
-    &-categories
-        width: fit-content
-    &-infos
-        li
-            &,
+// breadcrumb | fil d'ariane
+.breadcrumb 
+    li
+        &, a
+            text-transform: uppercase
+        &.active
+            &::before,
             span
-                text-transform: uppercase
+                color: $color-text-disabled
 
+// toc
 .toc-container
     .toc-title
         font-weight: bold
         text-transform: uppercase
+    .toc
+        ol
+            li
+                a
+                    text-decoration-color: transparent !important 
+                    text-decoration: underline
+                    text-decoration-thickness: 2px
+                    &:hover
+                        text-decoration-color: $color-accent-alt !important
+                    &.active
+                        color: var(--color-text)
+                        text-decoration-color: $color-accent !important
 
 // Events section
-.events-actions
-    .chip
-        border-radius: 0
+.events__page
+    .events-actions
+        .chip
+            border-radius: 0
+    .event-infos
+        > li
+            > span
+                color: var(--color-text)
+                + ul
+                    margin-top: space(4)
+            ul
+                li + li
+                    margin-top: space(2)
+            @include media-breakpoint-up(desktop)
+                padding-top: 0
+                padding-bottom: space(10)
+        .share
+            @include media-breakpoint-up(desktop)
+                li
+                    &:first-child a
+                        padding-left: $spacing-2
+                    a
+                        @include hover-gray
 
 // persons page
 .persons--grid
@@ -74,12 +134,48 @@ footer#document-footer .footer-credit,
         .description
             display: flex
             flex-direction: column
+.persons__page
+    .contacts-details
+        li
+            span
+                color: var(--color-text-alt)
+
+// navigation
+.siblings-navigation
+    li.next,
+    li.previous
+        span.has-animation
+            margin-bottom: 0
+            display: block !important
+            [aria-hidden="true"]::after,
+            [aria-hidden="true"]::before
+                content: ''
+                font-family: unset
+                margin-left: 0
+                margin-right: 0
+                height: pxToRem(12)
+                width: pxToRem(12)
+        @include media-breakpoint-down(desktop)
+            &::after,
+            &::before
+                display: none
+    li.previous
+        a
+            span.has-animation
+                align-items: baseline
+                display: flex !important
+                justify-content: flex-end
+                flex-direction: row-reverse
+                [aria-hidden="true"]
+                    margin-left: 0
+                    margin-right: space(2)
 
 // blocks
 body.full-width
     @include media-breakpoint-up(desktop)
+        main:not(.page-with-blocks, .page-with-map)
+            padding-bottom: $spacing-6
         .block:last-child
-            margin-bottom: var(--block-space-y)
             &.block-call_to_action--no_background
                 .block-content
-                    padding-bottom: var(--block-space-y)
+                    padding-bottom: 0

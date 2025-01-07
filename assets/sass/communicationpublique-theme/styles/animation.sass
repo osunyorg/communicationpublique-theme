@@ -28,6 +28,9 @@
         .block-persons--list &,
         .block-persons--grid &,
         .persons--list &,
+        .persons--grid &,
+        .block-links &,
+        .block-pages--list.with-description &,
         .persons--grid &
             height: pxToRem(22)
             width: pxToRem(22)
@@ -72,6 +75,8 @@
             left: unset
             top: unset
             width: 100%
+    li.next:hover & span,
+    li.previous:hover & span,
     &:hover span
         transform: translate(15%, -40%)
         &::before
@@ -81,6 +86,8 @@
     .block-pages--grid .page-title &::after,
     .block-pages--list .list &::before,
     .block-pages--list.with-description .list &::after,
+    .siblings-navigation li &::after,
+    .siblings-navigation li &::before
         content: none !important
 
 // colors
