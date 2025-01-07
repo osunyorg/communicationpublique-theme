@@ -67,6 +67,15 @@
             aspect-ratio: 1
             @include in-page-with-or-without-sidebar
                 margin-right: var(--grid-gutter-negative)
+        @include in-page-without-sidebar
+            .event-content
+                grid-template-columns: repeat(8, 1fr)
+                > .event-schedule
+                    grid-column: 1 / 4
+                .event-title,
+                .event-subtitle,
+                .event-description
+                    grid-column: 4 / 12
     &--grid
         .event
             .event-dates
@@ -92,7 +101,7 @@
                     object-fit: cover
                     object-position: center
                 @include in-page-with-or-without-sidebar
-                    width: calc(#{columns(2)} + (var(--column-width) * 2))
+                    width: calc(#{columns(2.2)} + (var(--column-width) * 2))
             @include in-page-with-or-without-sidebar
                 border-bottom: 0
                 margin-bottom: $spacing-5
