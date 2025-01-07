@@ -59,48 +59,41 @@ header#document-header
                 align-items: center
             > li
                 @include media-breakpoint-down(desktop)
-                    border-bottom: 2px solid $color-accent-alt
+                    &:not(.nav-search)
+                        border-bottom: 2px solid $color-accent-alt
                     > a, 
                     > span, 
                     > button
                         padding-bottom: space(4)
                         padding-top: space(4)
-                &:nth-last-child(2)
+                    &:nth-last-child(2)
+                        order: 2
+                a[href="/nous-rejoindre"]
                     --btn-background: #{$block-call-to-action-button-background}
                     --btn-border: #{$block-call-to-action-button-border}
                     --btn-color: #{$block-call-to-action-button-color}
                     --btn-hover-background: #{$block-call-to-action-button-hover-background}
                     --btn-hover-border: #{$block-call-to-action-button-hover-border}
                     --btn-hover-color: #{$block-call-to-action-button-hover-color}
-                    a
-                        @extend .btn
-                        &,
-                        &:hover
-                            text-decoration: none
-                        @include media-breakpoint-down(desktop)
-                            width: 100%
-                        &,
-                        &:hover
-                            text-decoration: none
-                    @include media-breakpoint-down(desktop)
-                        order: 2
-                &:nth-last-child(3)
-                    a
-                        @include hover-gray
-                        @include media-breakpoint-up(desktop)
-                            font-size: 0
-                        &::after
-                            @include icon-site(email)
-                            font-size: pxToRem(13)
-                        &:hover
-                            text-decoration: none
-                &:nth-last-child(2),
-                &.nav-search
-                    .search-button
-                        align-items: center
-                        justify-content: center
+                    @extend .btn
+                    &,
+                    &:hover
+                        text-decoration: none
                     @include media-breakpoint-down(desktop)
                         border-bottom: 0
+                        width: 100%
+                    &,
+                    &:hover
+                        text-decoration: none
+                a[href="/contact"]
+                    @include hover-gray
+                    @include media-breakpoint-up(desktop)
+                        font-size: 0
+                    &::after
+                        @include icon-site(email)
+                        font-size: pxToRem(13)
+                    &:hover
+                        text-decoration: none
             @include media-breakpoint-up(desktop)
                 gap: $spacing-3
 
@@ -132,7 +125,21 @@ header#document-header
     // search
     .nav-search
         @include media-breakpoint-up(desktop)
-            @include hover-gray
-    #search 
-        .pagefind-ui__form::after
-            font-size: pxToRem(20)
+            margin-left: -($spacing-2)
+            button
+                @include hover-gray
+                align-items: center
+                justify-content: center
+        @include media-breakpoint-down(desktop)
+            order: 2
+            > button.search-button--primary
+                justify-content: space-between
+                span
+                    position: relative !important
+                    height: auto !important
+                    width: auto !important
+                    clip-path: none !important
+
+#search 
+    .pagefind-ui__form::after
+        font-size: pxToRem(20)
