@@ -257,10 +257,20 @@
     &--list
         &.with-description
             .block-content
+                .top
+                    .description
+                        p
+                            text-transform: none
+                        @include media-breakpoint-down(xxl)
+                            @include h3
+                            font-weight: normal
+                            font-family: $font-normal
                 @include in-page-without-sidebar
                     .top
                         .description p
                             @include lead
+                            @include media-breakpoint-down(xxl)
+                                font-size: Min(Max(3vw, $lead-size), 40px)
                     .list
                         li
                             text-transform: uppercase
