@@ -85,7 +85,11 @@
     &--grid
         .event
             .event-dates
+                @include body-text
+                text-transform: none
                 font-weight: normal
+                + .event-time
+                    margin-top: space()
             .event-title,
             .event-subtitle
                 @include h4
