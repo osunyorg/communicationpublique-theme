@@ -86,11 +86,14 @@
         .event
             .event-dates
                 font-weight: normal
+            .event-title,
+            .event-subtitle
+                @include h4
             .media
                 margin-bottom: $spacing-3
                 img
                     aspect-ratio: 7/5
-            @include media-breakpoint-down(xxl)
+            @include media-breakpoint-down(xl)
                 .event-title
                     font-size: Min(Max(5vw, $h3-size), $h2-size)
                 .event-subtitle
