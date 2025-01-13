@@ -329,11 +329,12 @@
         .person-name
             text-transform: uppercase
     &.block-with-long-text
-        .person
-            .persons
-                @include in-page-without-sidebar
-                    .avatar
-                        width: columns(1.5)
+        &:not(.block-persons--large)
+            .person
+                .persons
+                    @include in-page-without-sidebar
+                        .avatar
+                            width: columns(1.5)
     &--large
         article.person
             .person-name
