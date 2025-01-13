@@ -264,6 +264,15 @@
                 margin-top: space(4)
             .project-meta
                 margin-top: space(4)
+    &--large
+        .project
+            @include in-page-with-sidebar
+                [itemprop="abstract"],
+                .project-meta
+                    margin-top: space(6)
+                .more
+                    display: none
+
 
 // meta
 .post,
