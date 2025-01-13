@@ -288,6 +288,10 @@
     & &-categories,
     time
         text-transform: uppercase
+    @include media-breakpoint-up(desktop)
+        &-categories
+            margin-bottom: $spacing-3 !important
+            margin-top: $spacing-3 !important
 
 // pages
 .block-pages
