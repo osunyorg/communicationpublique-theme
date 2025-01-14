@@ -246,6 +246,7 @@
     .posts_categories__term &,
     .post__section &
         article
+            align-items: flex-start
             .post-meta
                 time,
                 .post-reading-time
@@ -254,7 +255,6 @@
     @include in-page-without-sidebar
         .post-content
             width: columns(6)
-    @include in-page-with-or-without-sidebar
         .media,
         .media:empty
             aspect-ratio: 384 / 320
