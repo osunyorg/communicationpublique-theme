@@ -30,10 +30,10 @@
     {{ partial "footer/social.html" }}
   </div>
   <div class="footer-legals">
-    {{ partial "footer/i18n.html" . }}
     {{ if and (site.Params.search.active) (in site.Params.search.positions "footer") }}
         {{ partial "commons/search/button.html" "footer" }}
     {{ end }}
     {{ partial "footer/legals.html" }}
+    {{ partial "footer/credit.html" }}
   </div>
 </div>
