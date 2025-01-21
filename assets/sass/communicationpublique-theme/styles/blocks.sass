@@ -388,17 +388,31 @@
                     width: columns(1.5)
 
 // organizations
-.block-organizations
-    .organizations
+.organizations
+    .organization
+        .organization-title
+            a
+                @include h4
+        .organization-title
+            text-transform: uppercase
+            font-size: 0
+            height: 0
+            opacity: 0
+            width: 0
+        .media
+            border-radius: 100%
+    &,
+    &.with-summaries
         .organization
-            .organization-content 
-                .organization-title
-                    @include h4
-                    text-transform: uppercase
-                    a
-                        display: inline
-            .media
-                border-radius: 100%
+            align-items: center
+    &.with-summaries
+        @include media-breakpoint-down(md)
+            .organization
+                .media
+                    padding: 0
+                    width: columns(4)
+                    background-color: $color-background
+                    border-radius: 0
 
 // links
 .block-links
