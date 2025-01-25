@@ -105,12 +105,15 @@ header.hero
                 align-items: center
                 justify-content: center
                 position: relative
+                padding: 8px
+                overflow: hidden
                 &::after
                     aspect-ratio: 1
                     content: ''
                     border: 8px solid $color-accent-alt
                     border-radius: 50%
                     border-top: 8px solid transparent
+                    pointer-events: none
                     position: absolute
                     transform: rotate(45deg)
-                    width: calc(100% + 14px)
+                    width: 100%
