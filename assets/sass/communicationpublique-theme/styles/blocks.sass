@@ -78,9 +78,10 @@
                 grid-template-columns: repeat(8, 1fr)
                 > .event-schedule
                     grid-column: 1 / 4
-                .event-title,
-                .event-subtitle,
-                .event-description
+                > .event-title,
+                > .event-subtitle,
+                .event-description,
+                hgroup
                     grid-column: 4 / 12
     &--grid
         .event
