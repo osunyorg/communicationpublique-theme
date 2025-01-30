@@ -413,15 +413,7 @@
                     border-radius: 0
         &:not(.block-organizations--map .organizations)
             @include in-page-without-sidebar
-                @include grid(4, lg)
-                .organization
-                    flex-direction: column
-                    gap: 0
-                    width: unset
-                    .media
-                        border-radius: 0
-                        padding: 0
-                        width: columns(1.5)
+                row-gap: $spacing-1
 
 // links
 .block-links
