@@ -256,10 +256,12 @@
     @include in-page-without-sidebar
         .post-content
             width: columns(6)
-        .media,
-        .media:empty
-            aspect-ratio: 384 / 320
+        .media:empty,
+        .media
             margin-left: var(--grid-gutter-negative)
+        .media:empty,
+        .media picture
+            aspect-ratio: 384 / 320
 // projects
 .block-projects
     &--grid
