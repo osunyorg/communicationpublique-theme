@@ -117,3 +117,9 @@ header.hero
                     position: absolute
                     transform: rotate(45deg)
                     width: 100%
+.events__page
+    .hero--image-landscape
+        .content
+            @include media-breakpoint-up(desktop)
+                flex-direction: row-reverse
+                flex-wrap: nowrap
