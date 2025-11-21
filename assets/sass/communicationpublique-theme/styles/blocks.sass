@@ -169,27 +169,26 @@
         .post-meta,
         time
             color: var(--color-text)
-        .large
-            .post,
-            .page,
-            .project
-                a
-                    &, &:hover
-                        text-decoration: none
-                @include media-breakpoint-up(desktop)
-                    align-items: center
-                @include in-page-without-sidebar
-                    .post,
-                    .page,
-                    .project
-                        &-content
-                            width: columns(6)
-                    .media
-                        margin-left: calc(-1 * var(--grid-gutter))
-                        width: calc(#{columns(7)} - var(--grid-gutter) - #{space(2)})
-                        picture
-                            mask-repeat: no-repeat
-                            mask-size: 100%
+        .post,
+        .page,
+        .project
+            a
+                &, &:hover
+                    text-decoration: none
+            @include media-breakpoint-up(desktop)
+                align-items: center
+            @include in-page-without-sidebar
+                .post,
+                .page,
+                .project
+                    &-content
+                        width: columns(6)
+                .media
+                    margin-left: calc(-1 * var(--grid-gutter))
+                    width: calc(#{columns(7)} - var(--grid-gutter) - #{space(2)})
+                    picture
+                        mask-repeat: no-repeat
+                        mask-size: 100%
             @include in-page-without-sidebar
                 .post,
                 .page
