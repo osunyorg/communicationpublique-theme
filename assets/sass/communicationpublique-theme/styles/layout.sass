@@ -41,7 +41,7 @@ footer#document-footer,
 .block:not(.block-contact),
 .block-contact .contacts > div > *:not(.socials-list)
     a, .link
-        &[target="_blank"]:not(.icon)
+        &[target="_blank"]:where(:not(.icon))
             &::after
                 @include icon-site(external)
                 display: inline-block

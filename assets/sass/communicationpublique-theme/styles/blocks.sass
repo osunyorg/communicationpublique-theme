@@ -104,6 +104,12 @@
                     font-size: Min(Max(5vw, $h3-size), $h2-size)
                 .event-subtitle
                     font-size: Min(Max(5vw, $h4-size), $h5-size)
+    &--large
+        article
+            @include in-page-without-sidebar
+                .event-content
+                    padding-right: 0
+
 .events,
 .posts,
 .block-posts,
@@ -413,16 +419,27 @@
 
 // links
 .block-links
-    ul
-        .link-content
-            a
-                @include h3
-            p
-                @include body-text
-            @include media-breakpoint-down(desktop)
+    &--cards
+        ul
+            .link-content
                 padding: 0
+                a
+                    @include h3
+                    &[target="_blank"]
+                        .animated-circle
+                            display: none
+                        &:where(:not(.icon))::after
+                            bottom: unset
+                            display: inline-block
+                            font-size: 50% !important
+                            position: relative
+                            right: unset
                 p
-                    margin-top: 0
-        @include media-breakpoint-down(desktop)
-            li + li
-                margin-top: $spacing-4
+                    @include body-text
+                @include media-breakpoint-down(desktop)
+                    padding: 0
+                    p
+                        margin-top: 0
+            @include media-breakpoint-down(desktop)
+                li + li
+                    margin-top: $spacing-4

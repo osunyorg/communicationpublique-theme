@@ -1,6 +1,6 @@
 window.commPu = window.commPu || {};
 window.commPu.LinkAnimation = function () {
-    this.links = document.querySelectorAll('.nav-level-2 a, .block .top .block-title a, .block .top + ul a, .block [itemprop="headline"] a, .block .page-title a, .event-title a, .project-title a, .post-title a, .person-name a, .block-links a, .siblings-navigation li span:first-of-type')
+    this.links = document.querySelectorAll('.nav-level-2 a, .block .top .block-title a, .block [itemprop="headline"] a, .block .page-title a, .event-title a, .project-title a, .post-title a, .person-name a, .block-links a, .siblings-navigation li span:first-of-type')
     
     this.createSpan();
 };
