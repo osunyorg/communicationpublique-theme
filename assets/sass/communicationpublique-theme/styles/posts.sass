@@ -1,3 +1,25 @@
+// lists
+.posts
+    &--list
+        > li
+            border-bottom: none
+            @include in-page-without-sidebar
+                padding-bottom: 0
+                + li
+                    margin-top: 0
+        article
+            [itemprop="abstract"]
+                margin-top: space() !important
+            .post-meta
+                padding-top: space(4) !important
+
+//item
+.post
+    .post-title
+        order: -2
+    .post-categories
+        order: -1
+
 // categories
 .post
     &-taxonomies

@@ -166,30 +166,41 @@
 .block-projects,
 .block-pages
     &--large
-        .post-meta,
-        time
-            color: var(--color-text)
-        .post,
-        .page,
-        .project
-            a
-                &, &:hover
-                    text-decoration: none
-            @include media-breakpoint-up(desktop)
-                align-items: center
-            @include in-page-without-sidebar
-                .post,
-                .page,
-                .project
-                    &-content
+        .block-content
+            .post-meta,
+            time
+                color: var(--color-text)
+            .post,
+            .page,
+            .project
+                a
+                    &, &:hover
+                        text-decoration: none
+                @include media-breakpoint-up(desktop)
+                    align-items: center
+                @include in-page-without-sidebar
+                    [class$="-content"]
                         width: columns(6)
-                .media
-                    margin-left: calc(-1 * var(--grid-gutter))
-                    width: calc(#{columns(7)} - var(--grid-gutter) - #{space(2)})
-                    picture
-                        mask-repeat: no-repeat
-                        mask-size: 100%
+                    .media
+                        margin-left: calc(-1 * var(--grid-gutter))
+                        width: calc(#{columns(7)} - var(--grid-gutter) - #{space(2)})
+                        picture
+                            mask-repeat: no-repeat
+                            mask-size: 100%
             @include in-page-without-sidebar
+                [class$="-content"]
+                    height: fit-content
+                    padding-bottom: $spacing-4
+                    [class$="-title"]
+                        @include h1
+                        @include responsive-h1
+                    [class$="-subtitle"]
+                        @include h2
+                        @include responsive-h2
+                    .more
+                        display: none
+
+                // images with masks
                 .post,
                 .page
                     picture 
@@ -197,43 +208,26 @@
                         mask-image: url('/assets/images/masks/mask-2.svg')
                         img
                             aspect-ratio: 4/3
+                    
                 .project
                     picture 
                         -webkit-mask-image: url('/assets/images/masks/mask-1.svg')
                         mask-image: url('/assets/images/masks/mask-1.svg')
                         img
                             aspect-ratio: 768/640
-                .post,
-                .page,
-                .project
-                    &-content
-                        height: fit-content
-                        padding-bottom: $spacing-4
-                    .post-title,
-                    .page-title,
-                    .project-title
-                            @include h1
-                            @include responsive-h1
-                    .post-subtitle,
-                    .page-subtitle,
-                    .project-subtitle
-                            @include h2
-                            @include responsive-h2
-                    .more
-                        display: none
-            @include in-page-with-sidebar
-                .media img
-                    aspect-ratio: 1
-                @include media-breakpoint-down(xxl)
-                    .post-title,
-                    .page-title,
-                    .project-title
-                        @include h3
-                    .post-subtitle,
-                    .page-subtitle,
-                    .project-subtitle
-                        @include h4
-                        text-transform: uppercase
+                
+                @include in-page-with-sidebar
+                    .post,
+                    .page,
+                    .project
+                        .media img
+                            aspect-ratio: 1
+                        @include media-breakpoint-down(xxl)
+                            [class$="-title"]
+                                @include h3
+                            [class$="-subtitle"]
+                                @include h4
+                                text-transform: uppercase
 
 // posts
 .post
