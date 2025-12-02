@@ -38,7 +38,7 @@
             @include media-breakpoint-up(desktop)
                 height: pxToRem(28)
                 width: pxToRem(28)
-        body:not(.full-width) .large &,
+        body:not(.full-width) [class*="--large"] &,
         .block-projects--grid &
             height: pxToRem(22)
             width: pxToRem(22)
@@ -49,7 +49,7 @@
             @include media-breakpoint-down(desktop)
                 height: pxToRem(18)
                 width: pxToRem(18)
-        body.full-width .large &
+        body.full-width [class*="--large"] &
             height: pxToRem(24)
             width: pxToRem(24)
             @include media-breakpoint-up(desktop)
