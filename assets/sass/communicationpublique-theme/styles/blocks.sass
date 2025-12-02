@@ -21,6 +21,11 @@
             background-color: $color-accent
             color: $color-background
             padding: pxToRem(4) $spacing-1
+        
+    @include media-breakpoint-down(desktop)
+        li + li
+            margin-top: space()
+
 // TODO: check when there are multiple catagories
 
 // call to action
