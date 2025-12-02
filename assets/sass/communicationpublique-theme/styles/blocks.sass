@@ -241,8 +241,20 @@
                                 text-transform: uppercase
 
 // posts
+.block-posts
+    &--large
+        @include media-breakpoint-down(desktop)
+            .post
+                .media
+                    margin-bottom: $spacing-3
+
 .post
     @include media-breakpoint-down(desktop)
+        .post-content
+            > .post-title,
+            hgroup
+                + *
+                    margin-top: $spacing-1 !important
         .media:empty
             display: none
 
@@ -289,9 +301,10 @@
                 .more
                     display: none
                     
-            @include media-breakpoint-down(desktop)
-                .media
-                    margin-bottom: $spacing-3
+    @include media-breakpoint-down(desktop)
+        .project
+            .media
+                margin-bottom: $spacing-3
 
 
 // meta
