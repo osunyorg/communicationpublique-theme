@@ -70,9 +70,12 @@
 .events
     &--list
         .media
-            aspect-ratio: 1
+            img
+                aspect-ratio: 1
+    
             @include in-page-with-or-without-sidebar
                 margin-right: var(--grid-gutter-negative)
+        
         @include in-page-without-sidebar
             .event-content
                 grid-template-columns: repeat(8, 1fr)
@@ -140,13 +143,15 @@
             @include media-breakpoint-down(desktop)
                 flex-direction: column
                 .media 
-                    aspect-ratio: 1
                     margin-left: var(--grid-gutter-negative)
                     margin-right: var(--grid-gutter)
                     margin-bottom: $spacing-3
                     order: -1
                     width: 100%
                     max-width: 100%
+                    img
+                        aspect-ratio: 1
+                        object-fit: cover
             @include media-breakpoint-up(desktop)
                 &-content
                     .event-title
@@ -262,6 +267,7 @@
         .media:empty,
         .media picture
             aspect-ratio: 384 / 320
+
 // projects
 .block-projects
     &--grid
@@ -282,6 +288,10 @@
                     margin-top: space(6)
                 .more
                     display: none
+                    
+            @include media-breakpoint-down(desktop)
+                .media
+                    margin-bottom: $spacing-3
 
 
 // meta
