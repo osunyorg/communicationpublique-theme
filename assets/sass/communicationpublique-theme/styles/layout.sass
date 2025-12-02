@@ -134,11 +134,16 @@ footer#document-footer .footer-credit,
         .description
             display: flex
             flex-direction: column
+
 .persons__page
     .contacts-details
         li
             span
                 color: var(--color-text-alt)
+
+    @include media-breakpoint-down(desktop)
+        .document-content > div
+            margin-top: $spacing-6
 
 // navigation
 .siblings-navigation

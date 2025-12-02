@@ -66,8 +66,13 @@
             .post-categories,
             [itemprop="abstract"]
                 margin-top: space(4)
+            
             @include media-breakpoint-down(desktop)
                 .post-content
                     margin-left: 0
                 .post-meta
                     margin-top: space(4)
+
+            @include in-page-without-sidebar
+                .post-content
+                    margin-left: columns(1)
