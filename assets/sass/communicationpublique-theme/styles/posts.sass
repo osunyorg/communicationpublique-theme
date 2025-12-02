@@ -12,11 +12,17 @@
                 margin-top: space() !important
             .post-meta
                 padding-top: space(4) !important
-
+        
+        @include in-page-without-sidebar
+            .post
+                .post-content
+                    width: columns(6)
 //item
 .post
-    .post-title
-        order: -2
+    .post-content
+        hgroup,
+        > .post-title
+            order: -2
     .post-categories
         order: -1
 
