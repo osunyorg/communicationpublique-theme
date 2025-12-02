@@ -1,3 +1,31 @@
+// lists
+.posts
+    &--list
+        > li
+            border-bottom: none
+            @include in-page-without-sidebar
+                padding-bottom: 0
+                + li
+                    margin-top: 0
+        article
+            [itemprop="abstract"]
+                margin-top: space() !important
+            .post-meta
+                padding-top: space(4) !important
+        
+        @include in-page-without-sidebar
+            .post
+                .post-content
+                    width: columns(6)
+//item
+.post
+    .post-content
+        hgroup,
+        > .post-title
+            order: -2
+    .post-categories
+        order: -1
+
 // categories
 .post
     &-taxonomies
@@ -44,8 +72,13 @@
             .post-categories,
             [itemprop="abstract"]
                 margin-top: space(4)
+            
             @include media-breakpoint-down(desktop)
                 .post-content
                     margin-left: 0
                 .post-meta
                     margin-top: space(4)
+
+            @include in-page-without-sidebar
+                .post-content
+                    margin-left: columns(1)

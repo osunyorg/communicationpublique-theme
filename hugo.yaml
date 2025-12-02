@@ -20,6 +20,9 @@ params:
   logo:
     header: '/assets/images/logo.svg'
     footer: '/assets/images/logo.svg'
+  events:
+    index:
+      sticky_dates: false
   organizations:
     single:
       backlinks: true
@@ -47,13 +50,17 @@ params:
       posts:
         item:
           desktop:  955
+        layouts:
+          list:
+            mobile: 327
       projects:
         item:
           desktop:  955
-    blocks:
-      persons:
-        large:
-          desktop:  555
       events:
-        grid:
-          desktop:  555
+        layouts:
+          grid:
+            desktop:  555
+      persons:
+        layouts:
+          large:
+            desktop:  555

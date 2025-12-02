@@ -15,6 +15,8 @@
                             @include h3
                             a
                                 transition: color 0.3s ease
+                                span
+                                    display: none
                             &::after
                                 content: none
                         .project-subtitle
@@ -28,3 +30,11 @@
                     &:hover
                         .project-title a
                             color: inherit
+    @include in-page-with-or-without-sidebar
+        .projects--list
+            .project
+                .project-title
+                    @include h3
+                .project-subtitle
+                    @include h4
+                    

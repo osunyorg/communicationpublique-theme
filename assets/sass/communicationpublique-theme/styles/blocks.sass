@@ -16,10 +16,16 @@
 .post .posts-taxonomies,
 .post-infos .posts-taxonomies
     li
+        display: inline-flex !important
         a
             background-color: $color-accent
             color: $color-background
             padding: pxToRem(4) $spacing-1
+        
+    @include media-breakpoint-down(desktop)
+        li + li
+            margin-top: space()
+
 // TODO: check when there are multiple catagories
 
 // call to action
@@ -70,9 +76,12 @@
 .events
     &--list
         .media
-            aspect-ratio: 1
+            img
+                aspect-ratio: 1
+    
             @include in-page-with-or-without-sidebar
                 margin-right: var(--grid-gutter-negative)
+        
         @include in-page-without-sidebar
             .event-content
                 grid-template-columns: repeat(8, 1fr)
@@ -104,6 +113,12 @@
                     font-size: Min(Max(5vw, $h3-size), $h2-size)
                 .event-subtitle
                     font-size: Min(Max(5vw, $h4-size), $h5-size)
+    &--large
+        article
+            @include in-page-without-sidebar
+                .event-content
+                    padding-right: 0
+
 .events,
 .posts,
 .block-posts,
@@ -134,13 +149,15 @@
             @include media-breakpoint-down(desktop)
                 flex-direction: column
                 .media 
-                    aspect-ratio: 1
                     margin-left: var(--grid-gutter-negative)
                     margin-right: var(--grid-gutter)
                     margin-bottom: $spacing-3
                     order: -1
                     width: 100%
                     max-width: 100%
+                    img
+                        aspect-ratio: 1
+                        object-fit: cover
             @include media-breakpoint-up(desktop)
                 &-content
                     .event-title
@@ -166,10 +183,10 @@
 .block-projects,
 .block-pages
     &--large
-        .post-meta,
-        time
-            color: var(--color-text)
-        .large
+        .block-content
+            .post-meta,
+            time
+                color: var(--color-text)
             .post,
             .page,
             .project
@@ -179,11 +196,8 @@
                 @include media-breakpoint-up(desktop)
                     align-items: center
                 @include in-page-without-sidebar
-                    .post,
-                    .page,
-                    .project
-                        &-content
-                            width: columns(6)
+                    [class$="-content"]
+                        width: columns(6)
                     .media
                         margin-left: calc(-1 * var(--grid-gutter))
                         width: calc(#{columns(7)} - var(--grid-gutter) - #{space(2)})
@@ -191,6 +205,19 @@
                             mask-repeat: no-repeat
                             mask-size: 100%
             @include in-page-without-sidebar
+                [class$="-content"]
+                    height: fit-content
+                    padding-bottom: $spacing-4
+                    [class$="-title"]
+                        @include h1
+                        @include responsive-h1
+                    [class$="-subtitle"]
+                        @include h2
+                        @include responsive-h2
+                    .more
+                        display: none
+
+                // images with masks
                 .post,
                 .page
                     picture 
@@ -198,47 +225,42 @@
                         mask-image: url('/assets/images/masks/mask-2.svg')
                         img
                             aspect-ratio: 4/3
+                    
                 .project
                     picture 
                         -webkit-mask-image: url('/assets/images/masks/mask-1.svg')
                         mask-image: url('/assets/images/masks/mask-1.svg')
                         img
                             aspect-ratio: 768/640
-                .post,
-                .page,
-                .project
-                    &-content
-                        height: fit-content
-                        padding-bottom: $spacing-4
-                    .post-title,
-                    .page-title,
-                    .project-title
-                            @include h1
-                            @include responsive-h1
-                    .post-subtitle,
-                    .page-subtitle,
-                    .project-subtitle
-                            @include h2
-                            @include responsive-h2
-                    .more
-                        display: none
-            @include in-page-with-sidebar
-                .media img
-                    aspect-ratio: 1
-                @include media-breakpoint-down(xxl)
-                    .post-title,
-                    .page-title,
-                    .project-title
-                        @include h3
-                    .post-subtitle,
-                    .page-subtitle,
-                    .project-subtitle
-                        @include h4
-                        text-transform: uppercase
+                
+                @include in-page-with-sidebar
+                    .post,
+                    .page,
+                    .project
+                        .media img
+                            aspect-ratio: 1
+                        @include media-breakpoint-down(xxl)
+                            [class$="-title"]
+                                @include h3
+                            [class$="-subtitle"]
+                                @include h4
+                                text-transform: uppercase
 
 // posts
+.block-posts
+    &--large
+        @include media-breakpoint-down(desktop)
+            .post
+                .media
+                    margin-bottom: $spacing-3
+
 .post
     @include media-breakpoint-down(desktop)
+        .post-content
+            > .post-title,
+            hgroup
+                + *
+                    margin-top: $spacing-1 !important
         .media:empty
             display: none
 
@@ -263,6 +285,7 @@
         .media:empty,
         .media picture
             aspect-ratio: 384 / 320
+
 // projects
 .block-projects
     &--grid
@@ -283,6 +306,11 @@
                     margin-top: space(6)
                 .more
                     display: none
+                    
+    @include media-breakpoint-down(desktop)
+        .project
+            .media
+                margin-bottom: $spacing-3
 
 
 // meta
@@ -316,7 +344,7 @@
                             @include lead
                             @include media-breakpoint-down(xxl)
                                 font-size: Min(Max(3vw, $lead-size), 40px)
-                    .list
+                    .pages
                         li
                             text-transform: uppercase
                             font-weight: bold
@@ -420,16 +448,27 @@
 
 // links
 .block-links
-    ul
-        .link-content
-            a
-                @include h3
-            p
-                @include body-text
-            @include media-breakpoint-down(desktop)
+    &--cards
+        ul
+            .link-content
                 padding: 0
+                a
+                    @include h3
+                    &[target="_blank"]
+                        .animated-circle
+                            display: none
+                        &:where(:not(.icon))::after
+                            bottom: unset
+                            display: inline-block
+                            font-size: 50% !important
+                            position: relative
+                            right: unset
                 p
-                    margin-top: 0
-        @include media-breakpoint-down(desktop)
-            li + li
-                margin-top: $spacing-4
+                    @include body-text
+                @include media-breakpoint-down(desktop)
+                    padding: 0
+                    p
+                        margin-top: 0
+            @include media-breakpoint-down(desktop)
+                li + li
+                    margin-top: $spacing-4

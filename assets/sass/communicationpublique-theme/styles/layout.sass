@@ -41,7 +41,7 @@ footer#document-footer,
 .block:not(.block-contact),
 .block-contact .contacts > div > *:not(.socials-list)
     a, .link
-        &[target="_blank"]:not(.icon)
+        &[target="_blank"]:where(:not(.icon))
             &::after
                 @include icon-site(external)
                 display: inline-block
@@ -134,11 +134,16 @@ footer#document-footer .footer-credit,
         .description
             display: flex
             flex-direction: column
+
 .persons__page
     .contacts-details
         li
             span
                 color: var(--color-text-alt)
+
+    @include media-breakpoint-down(desktop)
+        .document-content > div
+            margin-top: $spacing-6
 
 // navigation
 .siblings-navigation
