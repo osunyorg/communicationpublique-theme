@@ -42,6 +42,12 @@ params:
       layout: list
       options:
         year: true
+    single:
+      meta:
+        position: hero
+        options:
+          reading_time: false
+          share: false
   image_sizes:
     sections:
       posts:
